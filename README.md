@@ -11,8 +11,11 @@ Software prüft Berechtigungen und stellt sicher, dass nur autorisierte Benutzer
 Technologien: C# / .NET 6, ASP.NET Core MVC, Entity Framework, SQL-Datenbanken.
 
 Quick Start:
+
 cd Projekt/Replay
+
 dotnet restore
+
 dotnet run
 
 Das Projekt zeigt typische Workflows in der Unternehmensverwaltung wie Onboarding, Projektmanagement und
@@ -33,8 +36,11 @@ users have access to specific functions.
 Technologies: C# / .NET 6, ASP.NET Core MVC, Entity Framework, SQL databases.
 
 Quick Start:
+
 cd Projekt/Replay
+
 dotnet restore
+
 dotnet run
 
 The project demonstrates typical workflows in enterprise management, such as onboarding, project management,
