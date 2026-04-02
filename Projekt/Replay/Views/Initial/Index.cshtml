@@ -1,0 +1,95 @@
+@* @author: Daniel Feustel *@
+@using Microsoft.AspNetCore.Identity
+@using Replay.Services
+@using Replay.Enumerations
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject RoleManager<Role> RoleManager
+@{
+    ViewBag.Title = "Index";
+    
+}
+
+
+
+
+    
+    <head>
+        <link rel="stylesheet" href="~/css/users.css" asp-append-version="true" />
+        
+    </head>
+    <body>
+        <div>
+            <h1 class="">Herzlich Willkommen in Replay</h1>
+        </div>
+        <div class="form-container">
+    <form asp-action="CreateInitialUser" method="post">
+
+        <div class="row">
+            <div class="column">
+                <label for="firstname">Vorname</label>
+                <input type="text" id="firstname" name="Firstname" placeholder="Vorname eingeben"  required >
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <label for="lastname">Nachname</label>
+                <input type="text" id="lastname" name="Lastname" placeholder="Nachname eingeben" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="Email" placeholder="Email Adresse eingeben" required>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <label for="Password">Passwort</label>
+                <input type="password" id="password" name="Password" placeholder="Passwort" required>
+            </div>
+        </div>
+         <div class="row">
+            <div class="column">
+                <label for="ConfirmPassword">Bestätige Passwort</label>
+                <input type="password" name="ConfirmPassword" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="column" id="department-container">
+                <label>Abteilungen</label>
+                @foreach (Department department in Enum.GetValues(typeof(Department)))
+                {
+                    <span class="select-btn-dptm">@EnumMapperService.GetDepartmentName(department)</span>
+                }
+            </div>
+        </div>
+       <div class="row">
+            <div class="column" id="role-container">
+                <label>Rollen</label>
+                @foreach (Role role in RoleManager.Roles)
+                {   
+                    @if (role.Name != "Administrator") {
+                        <span class="select-btn-role">@role.Title</span>
+                    }
+                    
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="button-container">
+                    <input type="submit" value="Speichern" onclick="validateLists()">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+ <script src="~/js/users.js" asp-append-version="true"></script>
+ </body>
+
+    

@@ -1,0 +1,116 @@
+<!--author: Noah Engelschall-->
+
+@model Replay.ViewModels.TaskListViewModel
+
+<head>
+        <!-- Include CSS for task list styling -->
+        <link rel="stylesheet" href="~/css/tasklist.css" />
+        <!-- Include moment.js library for date manipulation -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</head>
+
+<div class="top-container">
+        <!-- Display header based on the view type -->
+        <span class="header-font">@(Model.ViewType == "Meine" ? "MEINE AUFGABEN" : "ALLE AUFGABEN")</span>
+
+        <!-- Toggle button to switch between "Meine" and "Alle" views -->
+        <div class="toggle-button">
+                <button class="@(Model.ViewType == "Meine" ? "active" : "")"
+                        onclick="toggleView('Meine')">Meine</button>
+                <button class="@(Model.ViewType == "Alle" ? "active" : "")" onclick="toggleView('Alle')">Alle</button>
+        </div>
+
+        <!-- Filter input and dropdown for task filtering -->
+        <div class="filter-input">
+                <button id="show-all-button" onclick="showAll()">Alles anzeigen</button>
+                <img id="filter-icon" src="~/public/filter-bright.png" alt="Fehler beim Laden des Bildes"
+                        onclick="toggleDropdown()" />
+                <div id="filter-dropdown" class="dropdown-content">
+                        <a href="#" onclick="setFilter('Alle')">Alle</a>
+                        <a href="#" onclick="setFilter('Aufgabe')">Aufgabe</a>
+                        <a href="#" onclick="setFilter('Vorgang')">Vorgang</a>
+                </div>
+                <input id="filter-input" type="text" placeholder="Suche nach" onkeypress="handleKeyPress(event)" />
+        </div>
+</div>
+
+<!-- Task table displaying the tasks -->
+<table class="task-table">
+        <thead>
+                <tr>
+                        <th>AUFGABEN</th>
+                        <th>VORGANG
+                                <img id="group-icon" src="~/public/group.png" alt="Gruppieren"
+                                        onclick="groupByVorgang()" />
+                        </th>
+                        <th style="position: relative;">FÄLLIG
+                                <img id="sort-icon" src="~/public/arrow-up.png" alt="Sortieren"
+                                        onclick="toggleSortDropdown()" />
+                                <div id="sort-dropdown" class="dropdown-content">
+                                        <a href="#" onclick="sortTable('asc')">Früheste zuerst</a>
+                                        <a href="#" onclick="sortTable('desc')">Späteste zuerst</a>
+                                </div>
+                        </th>
+                        <!-- Show STATUS column only if view type is "Alle" -->
+                        @if (Model.ViewType == "Alle")
+                        {
+                                <th>STATUS</th>
+                        }
+                        else
+                        {
+                                <th></th>
+                        }
+                        <th></th>
+                </tr>
+        </thead>
+        <tbody>
+                <!-- Iterate through tasks and display each task in a table row -->
+                @foreach (var task in Model.Tasks)
+                {
+                        <tr>
+                                <td>
+                                        <a class="instruction" onclick="toggleInstruction(@task.Id)">
+                                                @task.Title
+                                        </a>
+                                        <div id="instruction-@task.Id" class="task-instruction"
+                                                style="display:none; margin-top: 20px; padding: 10px;">
+                                                @task.Instruction
+                                        </div>
+                                </td>
+                                <td>@task.Operation?.Title</td>
+                                <td>@task.TargetDate.ToShortDateString()</td>
+                                @if (Model.ViewType == "Alle")
+                                {
+                                        <td>@task.StatusString</td>
+                                        <td>
+                                                @if (task.StatusString != "in Bearbeitung")
+                                                {
+                                                        <form asp-action="ClaimTask" method="post">
+                                                                <input type="hidden" name="id" value="@task.Id" />
+                                                                <button type="submit" class="claim-button">Übernehmen</button>
+                                                        </form>
+                                                }
+                                        </td>
+                                }
+                                else
+                                {
+                                        <td></td>
+                                        <td>
+                                                <form asp-action="CompleteTask" method="post">
+                                                        <input type="hidden" name="id" value="@task.Id" />
+                                                        <button type="submit" class="claim-button">Abschließen</button>
+                                                </form>
+                                        </td>
+                                }
+                        </tr>
+                }
+                <!-- Display a message if no tasks are found -->
+                @if (!Model.Tasks.Any())
+                {
+                        <tr>
+                                <td colspan="5" style="text-align: center;">Keine Aufgaben gefunden</td>
+                        </tr>
+                }
+        </tbody>
+</table>
+<script src="~/js/tasklist.js" asp-append-version="true"></script>

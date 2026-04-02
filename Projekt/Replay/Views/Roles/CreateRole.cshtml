@@ -1,0 +1,28 @@
+@using System.Collections.Generic
+@using Replay.ViewModels.RoleViewModels
+@model CreateRoleViewModel
+@{
+    ViewBag.Title = "Create Role";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Adjust the layout path if needed
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/roles.css" />
+</head>
+
+<div class="form-container">
+    <h2>Rolle erstellen</h2>
+    <form asp-action="CreateRole" method="post">
+        <label for="title">Name der Rolle</label>
+        <input type="text" id="title" name="Title"  placeholder="Name der Rolle eingeben" value="@Model?.Title" required>
+        <span asp-validation-for="Title" class="validation-text"></span>
+        <br>
+        <label for="description">Beschreibung der Rolle</label>
+        <textarea id="description" name="Description"  placeholder="Beschreibung eingeben" required></textarea>
+        <br>
+        <div class="button-container">
+            <a href="@Url.Action("Index", "Roles")" class="back-button">Zurück</a>
+            <input type="submit" value="Speichern">
+        </div>
+    </form>
+</div>

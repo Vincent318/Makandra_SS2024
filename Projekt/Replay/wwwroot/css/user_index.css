@@ -1,0 +1,147 @@
+.header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+}
+
+.view-title {
+        font-weight: bold;
+        margin-left: 30px;
+        font-family: 'League Spartan', sans-serif;
+        font-size: 3em;
+}
+
+.view-title-container {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'League Spartan', sans-serif;
+        align-items: center;
+        margin-right: 70px;
+        margin-bottom: 20px;
+}
+
+.add-user {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 1em;
+        cursor: pointer;
+        margin-right: 40px;
+        color: black;
+        text-decoration: none;
+}
+
+.search-input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin: 10px;
+}
+
+.user-list {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+}
+
+.delete-user {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #080808;
+        margin-right: 50px;
+}
+
+.delete-user:hover {
+        background-color: #c9302c;
+        /* Hover-Farbe */
+}
+
+.password-reset {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #080808;
+        margin-top: 10px;
+        margin-right: 30px;
+}
+
+.password-reset:hover {
+        color: blue;
+}
+
+.modify-user {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #080808;
+        margin-right: 20px;
+}
+
+.modify-user:hover img {
+        background-color: #c9302c;
+        /* Hover-Farbe */
+}
+
+.user-list-wrapper {
+        padding: 20px;
+}
+
+.user-list-header {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+}
+
+.user-list-table {
+        font-family: 'Open Sans', sans-serif;
+        width: 100%;
+        border-collapse: collapse;
+}
+
+.user-list-table th {
+        width: 15%;
+        padding: 10px;
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-weight: bold;
+        font-size: 15pt;
+}
+
+.user-list-table td {
+        border: 1px solid #ccc;
+        border-left: none;
+        border-right: none;
+        padding: 10px;
+        text-align: center;
+        padding-top: 50px;
+        padding-bottom: 30px;
+        font-family: 'Open Sans', sans-serif;
+}
+
+.user-list-table thead {
+        background: linear-gradient(90deg, #FF0844 0%, #FFB199 100%);
+        color: white;
+}
+
+/* Button-Styling */
+.action-button {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        /* Abstand zwischen den Buttons */
+        align-items: center;
+        /* Zentriere die Buttons */
+}
+
+.action-button {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+}
+
+body {
+        font-family: var(--body-text-font-family);
+        margin: 0;
+        padding: 0;
+}

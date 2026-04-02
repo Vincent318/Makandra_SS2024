@@ -1,0 +1,112 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@{
+    ViewBag.Title = "Benutzer";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Adjust the layout path if needed
+}
+
+<!DOCTYPE html>
+<html>
+    <head>
+            <link rel="stylesheet" href="~/css/user_index.css" />
+            <title>@ViewBag.Title</title>
+    </head>
+
+<body>
+   
+    <div class="user-list-wrapper">
+
+        <div class="view-title-container">
+            <h1 class = "view-title">BENUTZER</h1>
+            <div>
+                <a href="@Url.Action("CreateUser", "Users")" class="add-user">+ neuer Benutzer</a>
+               
+            </div>
+        </div>
+
+       <table class = "user-list-table">
+            <thead>
+                <tr>
+                    <th>NAME, VORNAME</th>
+                    <th>ABTEILUNG</th>
+                    <th>ROLLEN</th>
+                    <th>EMAIL</th>
+                    <th>STATUS</th>
+                    <th></th>
+                </tr>
+            </thead>
+      
+            <tbody>
+                @foreach (User user in UserManager.Users)
+                {   
+                    <tr>
+                        <td>@user.LastName  @user.FirstName</td>
+                        @if (user.Departments != null) {
+                            <td>@foreach (var item in user.Departments) {  
+                                <span>@item</span>
+                            }</td>
+                        } else {
+                            <td>-</td>
+                        }
+                         
+                        @if (user.Roles != null) {
+                            <td>@foreach (var item in user.Roles) {  
+                            <span>@item</span>
+                            }</td>
+                        } else {
+                            <td>-</td>
+                        }
+                        <td>@user.Email</td>
+                        @if (user.LockoutEnd.HasValue){<td>gesperrt</td>} else{<td>-</td>}
+                        <td>
+                            
+                            <div class = "action-button">
+                                @* Delete User form *@
+                                <form asp-action="DeleteUser" method="post" asp-route-id="@user.Id" style="display:inline;" onsubmit="return confirm('Sind Sie sicher, dass Sie diesen User löschen möchten?');" >
+                                    @Html.AntiForgeryToken()
+                                    <button class="delete-user" type="submit" title="Löschen">
+                                            <img src="~/public/Delete.png" alt="Search Icon" style="width: 28px; height: 28px ; pointer-events: none; vertical-align: middle">
+                                    </button>
+                                </form>
+
+                                @* APPORACH With ID *@
+                                <form asp-action="EditUser" method="get" asp-route-id="@user.Id" style="display:inline;">
+                                    @Html.AntiForgeryToken()
+                                    <button class="modify-user" type="submit" title="Bearbeiten">
+                                        <img src="~/public/Edit.png" alt="Search Icon" style="width: 28px; height: 28px ; pointer-events: none; vertical-align: middle">
+                                    </button>  
+                                </form> 
+                    
+                                <form asp-action="RequestPasswordReset" method="post">
+                                        <input name="Email" value="@user.Email" style="display: none;"> 
+                                        <button  class="password-reset" type="submit">
+                                            Passwort zurücksetzen
+                                        </button>   
+                                </form>
+                           
+                            </div>
+                        </td>
+                    </tr>
+
+                }
+               
+            </tbody> 
+
+         </table>
+
+    </div>
+
+
+</body>
+    <script>
+        function addUser(){
+            alert("Functionality not yet implemented!");
+        }
+        function deleteRole(roleTitle) {
+            alert("Delete functionality for role with title " + roleTitle + " not yet implemented!");
+        }
+
+
+    </script>

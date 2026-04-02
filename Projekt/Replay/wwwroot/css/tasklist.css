@@ -1,0 +1,219 @@
+body {
+        font-family: var(--text-font-family);
+}
+
+img {
+        height: 20px;
+        cursor: pointer;
+}
+
+.top-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 50px;
+        font-size: xx-large;
+}
+
+.header-font {
+        font-family: var(--header-font-family);
+        font-size: 30pt;
+        font-weight: 600;
+}
+
+.toggle-button {
+        display: flex;
+        overflow: hidden;
+}
+
+.toggle-button button {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+}
+
+.toggle-button button.active {
+        background-color: #FF576C;
+        color: white;
+}
+
+.toggle-button button:hover:not(.active) {
+        background-color: #e0e0e0;
+}
+
+.filter-input {
+        display: flex;
+        align-items: center;
+        position: relative;
+}
+
+
+.filter-input button {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-right: 10px;
+}
+
+.filter-input button:hover {
+        background-color: #e0e0e0;
+}
+
+.filter-input input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        outline: none;
+}
+
+.filter-input img {
+        margin-left: 40px;
+        margin-right: 10px;
+        cursor: pointer;
+        height: 25px;
+}
+
+#sort-icon, #group-icon {
+        height: 17px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        cursor: pointer;
+        position: relative;
+}
+
+#sort-dropdown {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        transform: translate(-200px, -50%);
+        z-index: 1;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    }
+    
+    #sort-icon {
+        cursor: pointer;
+        position: relative;
+    }
+
+#sort-dropdown a {
+        font-weight: 400;
+}
+
+.dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        right: 0;
+        font-size: 11pt;
+}
+
+.dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+}
+
+.dropdown-content a:hover {
+        background-color: #e0e0e0;
+}
+
+.dropdown-content a.active {
+        background-color: var(--peach);
+        color: white;
+}
+
+.show {
+        display: block;
+}
+
+table {
+        width: 100%;
+        border-collapse: collapse;
+        box-sizing: border-box;
+}
+
+table th, table td {
+        text-align: left;
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+        box-sizing: border-box;
+}
+
+thead {
+        background: var(--gradient);
+}
+
+table th {
+        color: white;
+        font-family: var(--header-font-family);
+        font-size: 20pt;
+        font-weight: 600;
+        padding: 35px 15px;
+        position: relative;
+}
+
+table td {
+        padding: 20px 15px;
+}
+
+table th:nth-child(3) img,
+table th:nth-child(2) img {
+        margin-left: 10px;
+        vertical-align: middle;
+}
+
+table th:nth-child(3) .dropdown-content,
+table th:nth-child(2) .dropdown-content {
+        right: 0;
+}
+
+.task-table th:nth-child(1),
+.task-table td:nth-child(1) {
+        width: 25%;
+}
+
+.task-table th:nth-child(2),
+.task-table td:nth-child(2) {
+        width: 25%;
+}
+
+.task-table th:nth-child(3),
+.task-table td:nth-child(3) {
+        width: 25%;
+        position: relative;
+}
+
+.task-table th:nth-child(4),
+.task-table td:nth-child(4) {
+        width: 15%;
+}
+
+.task-table th:nth-child(5),
+.task-table td:nth-child(5) {
+        width: 10%;
+}
+
+table .claim-button {
+        background-color: var(--peach);
+        color: white;
+        border: none;
+        padding: 10px 10px;
+        cursor: pointer;
+}
+
+table .claim-button:hover {
+        background-color: var(--pink);
+}
+
+.instruction {
+        cursor: pointer;
+}

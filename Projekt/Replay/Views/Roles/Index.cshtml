@@ -1,0 +1,128 @@
+@using Replay.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject RoleManager<Role> RoleManager
+@{
+    ViewBag.Title = "Rollen";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Adjust the layout path if needed
+}
+
+<!DOCTYPE html>
+    <head>
+        <link rel="stylesheet" href="~/css/roles.css" />
+        <title>@ViewBag.Title</title>
+    </head>
+<html>
+
+<head>
+    <title>@ViewBag.Title</title>
+    @* for the icons *@
+    <script src="https://kit.fontawesome.com/a158f5c122.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="role-list-wrapper">
+        <div class="view-title-container">
+            <h1 class="view-title">ROLLEN</h1>
+            <div>
+                <a href="@Url.Action("CreateRole", "Roles")" class="add-role">+ neue Rolle</a>
+            </div>
+        </div>
+
+        <table class="role-list-table" id = "tblRole">
+            <thead>
+                <tr>
+                    <th>TITLE</th>
+                    <th>BESCHREIBUNG</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var role in RoleManager.Roles)
+                {
+                    <tr  data-role-id="@role.Id">
+                        <td title-container>
+                            <label for = "title-input-@role.Id" class = "sr-only">Titel</label>
+                            <span class = "title-text">@role.Title </span>
+                            @* for same place editing title *@
+                            <input id= "title-input-@role.Id" type = "text" value = "@role.Title" style = "display:none" />
+                        </td>
+
+                        @if (role.Description != null) {
+                            <td class="description-container">
+                                <div class="dropdown">
+                                    <div class="description">
+                                        @if (role.Description.Length > 200)
+                                        {
+                                            <label for = "title-input-@role.Id" class = "sr-only">Description</label>
+                                            <span class="description-text">@role.Description.Substring(0, 200)...</span>
+                                            @* for same place editing description *@
+                                            <input type = "title-input- @role.Id" value = "@role.Description" style = "display:none" />
+                                        }
+                                        else
+                                        {
+                                            <label for = "title-input-@role.Id" class = "sr-only">Description</label>
+                                            <span class="description-text">@role.Description</span>
+                                            @* for same place editing description *@
+                                            <input type = "title-input-@role.Id" value = "@role.Description" style = "display:none" />
+                                        }
+                                    </div>
+                                    <div class="role-details">
+                                        @role.Description
+                                    </div>
+                                </div>
+                            </td>
+                        } else {
+                            <td class="description-container">
+                                <div class="dropdown">
+                                    <div class="description">                               
+                                        <span class="description-text"></span>                           
+                                    </div>
+                                    <div class="role-details">
+                                        
+                                    </div>
+                                </div>
+                            </td>
+                        }
+                        
+                        <td>
+                           @if (role.Description != null && role.Description.Length > 100)
+                            {
+                                <div class="expand-link" onclick="toggleRoleDetails(this)">
+                                    <img src="~/public/down-arrow-black.png" class = "role-expand-icon" alt = "Expand Icon"style="width: 28px; height: 28px ; pointer-events: none; vertical-align: middle">
+                                </div>
+                            }
+                        </td>
+
+                        <td>
+                            <div class = button-container>
+                                <form asp-action="DeleteRole" method="post" asp-route-title="@role.Title" style="display:inline;" onsubmit="return confirm('Sind Sie sicher, dass Sie diese Rolle löschen möchten?');" >
+                                    @Html.AntiForgeryToken()
+                                    <button class="delete-role" type="submit" title="Löschen">
+                                        <img src="~/public/Delete.png" alt="Search Icon" style="width: 28px; height: 28px ; pointer-events: none; vertical-align: middle">
+                                    </button>
+                                </form>
+                    
+                                <a class="edit-role" href = "javascript:;"> 
+                                    <img src="~/public/Edit.png" alt="Edit Icon" style="width: 28px; height: 28px ; pointer-events: none; vertical-align: middle">
+                                </a>
+
+                                <a class = "Update" href = "javascript:;" style = "display:none">Update</a>
+                                <a class = "Cancel" href = "javascript:;" style = "display:none">Cancel</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script type = "text/javascript" src ="~/js/roles.js" asp-append-version="true"> </script>
+
+</body>
+</html>

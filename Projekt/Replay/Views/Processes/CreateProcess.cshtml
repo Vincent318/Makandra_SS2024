@@ -1,0 +1,354 @@
+@* @author: Vincent Arnold *@
+@using System.Collections.Generic
+@using Replay.ViewModels.ProcessViewModels
+@model CreateProcessViewModel
+@{
+    ViewBag.Title = "Prozess erstellen";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    @* var existingProcessNames = (List<string>)ViewBag.ExistingProcessNames ?? new List<string>(); *@
+
+}
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prozess erstellen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            @* Das verzieht die Navbar *@
+            @* padding: 20px; *@
+            background-color: #fff;
+            user-select: none;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            
+            background-color: #f5f5f5;
+
+            @* ich glaube wir wollten das eckig machen also ohne abrundungen *@
+            @* border-radius: 0px; *@
+
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            @* ich denke lieber nicht auf die volle breite der seite 100 -> 50*@
+            width: 50%;
+
+            box-sizing: border-box;
+            
+            @* margin-top: 25px;
+            margin-left:350px; *@
+
+            margin: 0 auto;
+
+            @* das verzieht die navbar *@
+            @* position: relative; *@
+        }
+
+        .container label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .row {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .column {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container label {
+            @* display: block; *@
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+
+            @* eckige ränder *@
+            border-radius: 0px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 0px;
+            background-color: #FFB199;
+            color: black;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        } 
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .roles-container {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .role-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            
+        }
+
+        .role-item input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 0px;
+        }
+
+        .role-item button {
+            background-color: red;
+            color: black;
+            border: none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 5px;
+            
+        }
+
+        .role-item button:hover {
+            background-color: darkred;
+        }
+
+        .add-role-btn {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0px;
+            cursor: pointer;
+            
+        }
+
+        .add-role-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .save-btn {
+            @* position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #808080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0px;
+            cursor: pointer;
+            font-weight: bold; *@
+
+            padding: 10px 20px;
+            border: none;
+            background-color: #575556;
+            color: white;
+            cursor: pointer;
+            border-radius: 0px;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .save-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .container close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .role-button {
+            background-color: #d3d3d3;
+            color: black;
+            border: none;
+            border-radius: 0px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .role-button:hover{
+             background-color: #FFB199;
+        }
+
+        .role-button.selected {
+            background-color: #FFB199;
+            color: black;
+        }
+
+
+        .button-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #575556;
+            color: white;
+            cursor: pointer;
+            border-radius: 0px;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+    <div class="wrapper">
+    <div class="container">
+
+        @* Prozess erstellen *@
+        <h1>Prozess erstellen</h1>
+
+        @* ich habe das unten hin gepackt, weil habs nicht hinbekommen, dass es oben rechts ist, auch habe ich ein schlie0en statt dem x ist dann auch einheitlicher mit den user *@
+        @* <a class="close-button" href="@Url.Action("Index", "Processes")">&times;</a> *@
+
+
+        <form id="processForm" method="post" asp-action="CreateProcess" onsubmit="return validateForm()">
+            
+            
+                <label for="title">PROZESSNAME</label>
+                @{
+                    var defaultValue = Model.Title ?? "";
+                }
+                <input type="text" id="title" name="Title" placeholder="Prozessname eingeben" value="@defaultValue">
+                <span asp-validation-for="Title" class="validation-text"></span>
+                
+
+                <label for="description">BESCHREIBUNG</label>
+                @{
+                    var descriptionValue = Model.Description ?? "";
+                }
+                <textarea id="description" name="Description" rows="4" placeholder="Beschreibung eingeben" >@descriptionValue</textarea>
+                
+                <label>BEFUGTE ROLLEN</label>
+                <div class="roles-container" id="roles-container">
+                   
+                    <div class = "row">
+                        @{
+                            var choosedRoles = Model.ChoosedRoles ?? new string[0];
+                        }
+                        @foreach (var role in Model.Roles)
+                        {   
+                            if (!choosedRoles.Contains(role) && role != "Administrator") {
+                                <div class="role-button select-btn" name="Roles[]">@role</div>
+                            }
+                            <input type="hidden" name="Roles[]" value="@role"/>
+                        }
+                        @foreach (var role in choosedRoles)
+                        {   
+                            <div class="role-button select-btn selected">@role</div>
+                            <input type="hidden" name="ChoosedRoles[]" value="@role"/>
+                        }
+                    </div>
+                </div>
+                
+
+            <div class = "row">
+                <div class = "column">
+                    <div class="button-container">
+                        @* <a class="close-button" href="@Url.Action("Index", "Processes")">&times;</a> *@
+                        <a href="@Url.Action("Index", "Processes")" class="back-button">Zurück</a>
+                        <button type="submit" class="save-btn">Speichern</button>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </form>
+        
+    </div>
+</div>
+    <script>
+        let rolesBtns = document.getElementsByClassName("select-btn");
+        let rolesContainer = document.getElementById("roles-container");
+        let roles = [];
+
+        for (let i = 0; i < rolesBtns.length; i++) {
+            rolesBtns[i].addEventListener("click", () => {
+                rolesBtns[i].classList.toggle("selected");
+                toggleRoles(rolesBtns[i]);
+            });
+        }
+
+        function toggleRoles(selected) {
+            let dupl = -1;
+            for (let i = 0; i < roles.length; i++) {
+                if (roles[i].innerHTML === selected.innerHTML) {
+                    dupl = i;
+                }
+            }
+            if (dupl != -1) {
+                roles.splice(dupl, 1);
+            } else {
+                roles.push(selected);
+            }
+        }
+
+        function validateForm() {
+            let titleInput = document.getElementById('title');
+            let processName = titleInput.value.trim();
+
+            roles.forEach(e => {
+                let newElement = document.createElement("input");
+                newElement.type = "hidden";
+                newElement.name = "ChoosedRoles[]";
+                newElement.value = e.innerHTML;
+                rolesContainer.appendChild(newElement);
+            });
+            return true;
+        }
+
+        
+    </script>
+</body>
+</html>

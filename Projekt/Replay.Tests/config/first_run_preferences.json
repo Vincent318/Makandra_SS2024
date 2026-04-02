@@ -1,0 +1,24 @@
+{
+        "browser": {
+            "check_default_browser": false
+        },
+        "distribution": {
+            "skip_first_run_ui": true
+        },
+        "search": {
+            "default_search_provider_data": {
+                "template_url_data": {
+                    "keyword": "google.com",
+                    "prepopulate_id": 1,
+                    "short_name": "Google",
+                    "suggestions_url": "http://clients1.google.com/complete/search?client=chrome&hl={language}&q={searchTerms}",
+                    "favicon_url": "http://www.google.com/favicon.ico",
+                    "url": "http://www.google.com/search?hl={language}&q={searchTerms}&sourceid=chrome&ie={inputEncoding}"
+                }
+            }
+        },
+        "sync_promo": {
+            "user_skipped": true
+        }
+    }
+    

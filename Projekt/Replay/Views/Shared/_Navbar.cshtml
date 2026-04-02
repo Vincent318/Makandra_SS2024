@@ -1,0 +1,16 @@
+@* @author: Daniel Feustel *@
+
+<nav class="navbar-wrapper">
+    <ul class="navbar-item-list" id="navbar-item-list">
+        <li style="height: 100%;"><a href="/"><img src="~/public/makandra_logo_1.png" alt="Makandra Logo" class="nb-makandra-logo"></a></li>
+        <li ><a class="navbar-item" href="@Url.Action("Index", "Tasklist")">Aufgaben</a></li>
+        <li ><a class="navbar-item" href="@Url.Action("Index", "Operations")">Vorgänge</a></li>
+        <li ><a class="navbar-item" href="/Processes">Prozesse</a></li>
+        <li ><a class="navbar-item" href="/Roles">Rollen</a></li>
+        <li ><a class="navbar-item" href="/Users">Benutzer</a></li>
+        <li class="user-container"> <a class="user-container" href="/Account"> <img id="username-option-btn" src="~/public/user-icon.png"></a>
+        </li>
+    </ul>
+</nav>
+
+

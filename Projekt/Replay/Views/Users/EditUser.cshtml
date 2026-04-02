@@ -1,0 +1,105 @@
+@using Replay.ViewModels
+@using Replay.ViewModels.UserViewModels
+@model EditUserViewModel
+@using Microsoft.AspNetCore.Identity
+@using Replay.Services
+@using Replay.Enumerations
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject RoleManager<Role> RoleManager
+
+@{
+    ViewBag.Title = "Edit User";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Adjust the layout path if needed
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/users.css" asp-append-version="true" />
+</head>
+
+
+<div class="form-container">
+    <h2>Benutzer ändern</h2>
+    <form asp-action="EditUser" method="post">
+         <div class="row">
+            <div class="column">
+                <label for="firstname">Vorname</label>
+                <input type="text" id="firstname" name="Firstname" value = "@Model.FirstName">
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <label for="lastname">Nachname</label>
+                <input type="text" id="lastname" name="Lastname" value = "@Model.LastName">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="Email" value ="@Model.Email">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column" id="department-container">
+                <label>Abteilungen</label>
+                @foreach (Department department in Enum.GetValues(typeof(Department)))
+                {
+                    var departmentName = EnumMapperService.GetDepartmentName(department);
+                    var isSelected = Model.Departments?.Contains(departmentName) ?? false;
+
+                    <span class="select-btn-dptm @(isSelected ? "selected" : "")">
+                        @departmentName
+                    </span>@Html.Raw("&nbsp;")
+                }
+
+            </div>
+        </div>
+        
+       <div class="row">
+            <div class="column" id="role-container">
+                <label>Rollen</label>
+
+                @foreach (Role role in RoleManager.Roles)
+                {
+                    var isSelected =  Model.Roles?.Contains(role.Name) ?? false;
+                   
+                    <span class="select-btn-role @(isSelected ? "selected" : "")">
+                        @role.Title
+                    </span>@Html.Raw("&nbsp;")
+                }
+            </div>
+        </div>
+        
+    
+        <div class="column">
+            <label for="locked">Sperren</label>
+            @{
+                var isLockedSelected = Model.IsLocked;
+            }
+            <div class="clickable-field @(isLockedSelected ? "checked" : "")" id="lock-toggle" onclick="toggleCheck(this)"></div>
+
+        </div>
+
+
+        <div id="additional-data">
+
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="button-container">
+                    <a href="@Url.Action("Index", "Users")" class="back-button">Zurück</a>
+                    <input type="submit" value="Speichern"  onclick="validateLists()">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+    
+<script src="~/js/users.js" asp-append-version="true"></script>
+

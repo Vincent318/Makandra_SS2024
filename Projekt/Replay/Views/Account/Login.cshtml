@@ -1,0 +1,42 @@
+@using Replay.ViewModels;
+
+@model LoginViewModel
+
+    <head>
+        <link rel="stylesheet" href="~/css/users.css" asp-append-version="true" />
+    </head>
+    <body>
+        <div>
+            <h1 class="">Replay - Login</h1>
+        </div>
+        <div class="form-container">
+    <form asp-action="Login" method="post">
+
+        <div class="row">
+            <div class="column">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="Email" placeholder="Email Adresse eingeben">
+                <span asp-validation-for="Email" class="validation-text"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <label for="Password">Passwort</label>
+                <div style="display: flex; flex-direction: column">
+                    <input type="password" id="password" name="Password" placeholder="Passwort" style="width:30%;">
+                    <a href="@Url.Action("ForgotPassword")">passwort vergessen</a>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="button-container">
+                    <input type="submit" value="Login">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</body>

@@ -1,0 +1,19 @@
+# @author Daniel Feustel
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build-env
+RUN apt-get update && \
+    apt-get install -y wget unzip && \
+    wget https://github.com/dotnet/docfx/releases/download/v2.77.0/docfx-linux-x64-v2.77.0.zip && \
+    unzip docfx-linux-x64-v2.77.0.zip -d /usr/local/docfx && \
+    ln -s /usr/local/docfx/docfx /usr/local/bin/docfx
+
+WORKDIR /app
+
+COPY . .
+
+RUN docfx build ./docfx.json
+
+FROM nginx:alpine
+COPY --from=build-env /app/_site /usr/share/nginx/html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

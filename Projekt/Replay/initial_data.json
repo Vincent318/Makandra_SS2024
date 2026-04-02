@@ -1,0 +1,1562 @@
+{
+  "operations": [{
+    "Id": 4,
+    "Title": "Onboarding f\u00FCr K\u00F6nig v. Augsburg",
+    "Description": "Onboarding f\u00FCr K\u00F6nig v. Augsburg",
+    "TargetDate": "2024-09-13",
+    "ContractTypeString": "Trainee",
+    "DepartmentString": "Backoffice",
+    "PersonInChargeMail": "koenig@replay.de",
+    "ReferencePersonMail": "bill@replay.de",
+    "Tasks": [
+      {
+        "Id": 60,
+        "Title": "Erstelle einen neuen GSuit-Account",
+        "Instruction": "- Lassen Sie GSuite ein Zufallspasswort erstellen\r\n- Kopieren Sie das Passwort in die Zwischenablage. *Erstellen Sie in Ihrem pers\u00F6nlichen Bereich* auf GDrive ein neues Dokument mit der Vorlage \u201EInitiale Zugangsdaten\u201C und f\u00FCgen Sie die GSuite-Anmeldedaten in dieses Dokument ein. Drucken Sie es aus und stecken Sie die Papierversion in einen Umschlag, den Sie dem neuen Mitarbeiter aush\u00E4ndigen k\u00F6nnen. Stellen Sie sicher, dass Sie das Dokument in Ihrem GDrive l\u00F6schen.\r\n- Machen Sie den Benutzer zu einem Mitglied in der Organisationseinheit, die am besten zu seiner T\u00E4tigkeit passt\r\n- Klicken Sie auf \u0060Speichern\u0060.\r\n- Machen Sie den Benutzer zu einem Mitglied in den Gruppen \u0060alle\u0060 (beide) und \u0060entwickler\u0060, wenn er ein technischer Mitarbeiter ist\r\n- Teilen Sie Anne Kolbe von der Personalabteilung mit, dass das E-Mail-Konto jetzt eingerichtet ist. Sie wird dann ein Konto mit Time Machine f\u00FCr den neuen Mitarbeiter einrichten.",
+        "TargetDate": "2024-07-26",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 61,
+        "Title": "Erstelle gitlab-Account f\u00FCr Technik-Angestellte",
+        "Instruction": "Erstelle einen neuen Gitlab-Account (https://code.makandra.de/admin/users/new) und maile das Passwort zu dem Nutzer falls der Nutzer ein Technik-Angestellter ist",
+        "TargetDate": "2024-07-26",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 62,
+        "Title": "Lade den Angestellten zu Kartendecks ein",
+        "Instruction": "Lade den Nutzer zu den folgenden Kartendecks ein: \u0060dev\u0060, \u0060orga\u0060, \u0060besprechungsprotokolle\u0060, \u0060zammad\u0060, \u0060makandra operations\u0060, \u0060makandra projektvorstellungen\u0060 und\u0060makandra-projektleitung-curriculum\u0060.",
+        "TargetDate": "2024-07-26",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 63,
+        "Title": "Einladung in Slack",
+        "Instruction": "Frage eine Einladung in Slack an, indem du auf den rechten-oberen Knopf dr\u00FCckst und f\u00FClle die Form aus. Die Anfrage wird automatisch genehmight da die Email mit @makandra.de endet",
+        "TargetDate": "2024-07-26",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 64,
+        "Title": "(Falls n\u00F6tig) Erstelle Sipgate-Account",
+        "Instruction": "Note: Wir erstellen standardm\u00E4\u00DFig keinen teuren Sipgate-Account mehr da die Meisten von uns ihr Handy sowieso nicht benutzen. Falls die Job-Beschreibung des neuen Angstellten darauf hinweist, dass dieser einen braucht, dann erstelle trotzdem einen Account. (z.B. wenn sie im Backoffice oder Marketing-Team arbeiten",
+        "TargetDate": "2024-07-26",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 65,
+        "Title": "Rahmenbedingung zu Vertrag einholen (bei Vertragsunterzeichnung)",
+        "Instruction": "- Informationen zu Rahmenbedingungen des Vertrags einholen\r\n- Vertrag erstellen\r\n- Vertrag vor ab neuen Mitarbeitenden per Mail senden\r\n- Vertrag unterschreiben lassen durch Gesch\u00E4ftsf\u00FChrung\r\n- Personalbogen inkl. erforderlicher Unterlagen per Mail an neuen MA zusenden und ablegen\r\n- Unterst\u00FCtzung f\u00FCr Umzug (500 \u20AC) ja/nein abfragen\r\n- Unterst\u00FCtzung f\u00FCr Umzug (500 \u20AC) an Personal kommunizieren",
+        "TargetDate": "2024-07-26",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "koenig@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 66,
+        "Title": "Weitergabe der Informationen von Vertrag",
+        "Instruction": "- Unterlagen in den jeweiligen Monatsordner f\u00FCr Gehaltsabrechnung DSG hochladen (Vertrag, PB, Perso, SV-Ausweis) und in der \u00DCbersicht \u00C4nderungen einpflegen\r\n- Mail an Ops wegen Vorbereitung/ Bestellung Hardware (Laptop, Handy, etc.) und Einrichtung Accounts:\r\n\r\nBetreff: Neue MA: XXX\r\nLiebes Ops-Team,\r\nbitte bereitet a) Hardware und b) Accounts f\u00FCr unseren neuen Mitarbeitenden XXX\r\nvor. Er beginnt am XX.YY.ZZZZ als XXX und bekommt die Default-Ausstattung.\r\nBitte gebt mir Bescheid, ob und wann die Ausr\u00FCstung bereit liegt.\r\nDanke und viele Gr\u00FC\u00DFe\r\n\r\n- Backoffice bez\u00FCglich Informationen und Termin anschreiben\r\n\r\nLiebes Backoffice-Team,\r\nwir bekommen am XX.YY.ZZZZ einen neuen Mitarbeitenden: XXX in der Position als XXX. Bitte bereitet unseren makandra-Rucksack inklusive Karte sowie Schl\u00FCssel vor und bestellt ein vegetarisches Mittagessen f\u00FCr sie/ihn.\r\nPlant am zweiten Tag auch eine kleine F\u00FChrung durch unser B\u00FCro und auch unser\r\nGeb\u00E4ude mit ein und stellt hier gleich einen Termin mit mir ein.\r\nBitte versendet auch das Willkommenspaket etwa vier Wochen vor Arbeitsbeginn\r\nfolgende Privatadresse: XXX.\r\n\u00DCber die genaue Uhrzeit am ersten Arbeitstag informiere ich euch noch in einer\r\nextra E-Mail.\r\nBuddy wird XXX sein und ist bereits informiert.\r\nBitte gebt mir Bescheid, ob und wann die Ausr\u00FCstung bereit liegt.\r\nDanke und viele Gr\u00FC\u00DFe\r\n- Buddy anfragen/ informieren und Kontakt vermitteln zur Kontaktaufnahme im Vorfeld",
+        "TargetDate": "2024-09-13",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "koenig@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 67,
+        "Title": "Preboarding (Vertragsunterzeichnung bis Antritt",
+        "Instruction": "- Einladung neuer MA zu anstehenden Teamevents\r\n- Vernetzung \u00FCber Soziale Medien\r\n- Versand Willkommens-Box (Backoce)\r\n- Mail zum 1. Tag im B\u00FCro, Vorabinformationen (One Pager - FAQs erster Tag), Uhrzeit,\r\nParkm\u00F6glichkeiten, Kleidergr\u00F6\u00DFe und Ansprechpartnern vor Ort",
+        "TargetDate": "2024-09-13",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "koenig@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 68,
+        "Title": "Organisatorisches vorm Start",
+        "Instruction": "- Anlegen in der Time Machine, Einrichten Deskbot-Account und erfragen Mailadresse bei Ops\r\n- Eintr\u00E4ge im Bereich \u0022Team\u0022: Senior-Peer, Bereich, Festanstellung seit, Position und\r\nPosition seit\r\n- Kl\u00E4ren Zuordnung Monthly Peer mit GL-Runde\r\nKl\u00E4ren Zuordnung Buddy\r\n- Mail an Backoce zur genauen Uhrzeit und Kleidergr\u00F6\u00DFe\r\nMail Ops wegen Ansprechpartner vor Ort\r\n- Mail Buddy wegen Anwesenheit im B\u00FCro\r\nBrief ausdrucken\r\n- Willkommensmail an das Team \u00FCber alle@ versenden\r\n\r\n### Festangestellt\r\nLiebes Team,\r\n_Vorname_ _Nachname_ wird uns ab dem DD.MM.YYYY im Bereich Entwicklung /\r\nBackoffice / Operations / UI/UX / Marketing unterst\u00FCtzen.\r\nHerzlich Willkommen bei makandra!\r\nViele Gr\u00FC\u00DFe\r\n### Trainee\r\nLiebes Team,\r\n_Vorname_ _Nachname_ wird ab dem DD.MM.YYYY unser Trainee-Programm im Bereich\r\nEntwicklung / Operations absolvieren.\r\nHerzlich Willkommen bei makandra und viel Erfolg!\r\nViele Gr\u00FC\u00DFe",
+        "TargetDate": "2024-09-13",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "koenig@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 71,
+        "Title": "1. Tag | Backoffice-ToDo",
+        "Instruction": "- Empfang ist mit People \u0026 Culture-Team\r\n- B\u00FCrof\u00FChrung, Vorstellung Kolleg*innen und Schl\u00FCssel-/ Karten\u00FCbergabe durch Backoffice",
+        "TargetDate": "2024-09-13",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "Backoffice",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 72,
+        "Title": "1. Tag | People \u0026 Culture-ToDo",
+        "Instruction": "- Empfang mit Backoffice-Team\r\n- Erkl\u00E4rung Organisatorisches und fehlende Unterlagen (NachwG, Datenschutz) durch People \u0026 Culture",
+        "TargetDate": "2024-09-13",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "Personal",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 73,
+        "Title": "1. Tag | Ops-ToDO",
+        "Instruction": "- Begleitung durch Ops bei der Einrichtung PC\r\n- Einrichtung PC und Accounts abschlie\u00DFen inkl. Erstellung Sicherungskopie mit Ops",
+        "TargetDate": "2024-09-13",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 74,
+        "Title": "1. Tag | Vorgangsverantwortlicher",
+        "Instruction": "- \u00DCbergabe Package, Schl\u00FCssel, Karte und Hardware\r\n- Vorstellung Buddy\r\n- Gemeinsames Mittagessen mit Buddy\r\n- Begr\u00FC\u00DFung im Weekly",
+        "TargetDate": "2024-09-13",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "koenig@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 75,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | Erste Feedbackrunde",
+        "Instruction": "Angekommen? Erwartungen? Fragen? Onboarding-Card 2. Teil?",
+        "TargetDate": "2024-09-13",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "Personal",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 76,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | Zweite Fragerunde",
+        "Instruction": "Angekommen? Erwartungen und Zufriedenheit? Verbesserungsvorschl\u00E4ge?",
+        "TargetDate": "2024-09-13",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "Personal",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 77,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | dritte Fragerunde",
+        "Instruction": "Angekommen? Perspektiven? Probezeitende",
+        "TargetDate": "2024-09-13",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "Gesch\u00E4ftsleitung",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 78,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | Termine",
+        "Instruction": "- Termine f\u00FCr Onboarding-Gespr\u00E4che\r\n- Termine f\u00FCr Probezeit und Festanstellung Trainee",
+        "TargetDate": "2024-09-13",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "koenig@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 79,
+        "Title": "Austellung des neuen Mitarbeits mit Hardware",
+        "Instruction": "- Notebook\r\n- Externe USB-Festplatte zum Erstellen von Backups deines Laptops Tastatur\r\n- Headset (Beachte: Bei unserem Standard-Headset gibt es am Kabel einen Schalter, der am Anfang auf stumm gestellt ist.)\r\n- Maus\r\n- Mauspad\r\n- In-Ear-Kopfh\u00F6rer zum H\u00F6ren von Musik. Verwende dazu bitte keine Over-Ear-Kopfh\u00F6rer (es sei denn, sie haben ein geschlossenes Design), da andere Personen im selben Raum alles h\u00F6ren k\u00F6nnen.",
+        "TargetDate": "2024-09-13",
+        "StatusString": "unbearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 80,
+        "Title": "Grundlagen der B\u00FCro-IT-Sicherheit",
+        "Instruction": "- Lies dir durch und merk dir, wie wir mit Passw\u00F6rtern, Browsererweiterungen und\r\nSicherheitsgrundlagen umgehen.\r\n- Frag unseren Informationssicherheitsbeauftragten (ISB), wie wir mit Passw\u00F6rtern umgehen. Es wird von dir erwartet, dass du eindeutige, nicht speicherbare Passw\u00F6rter f\u00FCr jedes deiner Konten in Keepass erstellst und dir niemals ein Passwort merkst, au\u00DFer f\u00FCr deine Festplattenverschl\u00FCsselung, deinen Linux-Benutzer und dein Keepass.\r\n- Bitte verwende keine privaten Ger\u00E4te f\u00FCr die Arbeit, au\u00DFer bei den im Lauf des Onboardings ausdr\u00FCcklich genannten Ausnahmen.",
+        "TargetDate": "2024-09-13",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "bill@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 81,
+        "Title": "Anmeldedaten einrichten | Kein Passw\u00F6rter mit Google Chrome cloud synchronisieren ",
+        "Instruction": "Stelle sicher, dass du deine Passw\u00F6rter nicht mit der Google Chrome Cloud synchronisierst.",
+        "TargetDate": "2024-09-13",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "bill@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 82,
+        "Title": "Anmeldedaten einrichten | Rest",
+        "Instruction": "- Erstelle einen neuen Basic-Auth-Passwort-Hash und schicke ihn per E-Mail an ops@makandra.de.\r\n- Sende diesen Passwort-Hash an ops@makandra.de und bitte darum, in die allgemeine Basisauthentizierung von makandra aufgenommen zu werden.",
+        "TargetDate": "2024-09-13",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "bill@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          "Festanstellung"
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 83,
+        "Title": "Erste Schritte mit Gitlab",
+        "Instruction": "- Ops hat einen Gitlab-Benutzer f\u00FCr dich erstellt. Du solltest eine E-Mail mit einem tempor\u00E4ren Passwort erhalten haben.\r\n- F\u00FCge deinen SSH-Schl\u00FCssel in dein GitLab-Profil ein.\r\n- Du darfst dein privates Smartphone f\u00FCr die erforderliche Zwei-Faktoren-Authentifizierung\r\nverwenden.\r\n- Richte eine vern\u00FCnftige git-config ein.",
+        "TargetDate": "2024-09-13",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "bill@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          "Operations",
+          "Entwicklung"
+        ]
+      }
+    ],
+    "Archived": false
+  },
+  {
+    "Id": 5,
+    "Title": "Onboarding f\u00FCr Karl Toffel",
+    "Description": "Onboarding",
+    "TargetDate": "2024-07-27",
+    "ContractTypeString": "Festanstellung",
+    "DepartmentString": "Entwicklung",
+    "PersonInChargeMail": "gerhard@replay.de",
+    "ReferencePersonMail": "karl@replay.de",
+    "Tasks": [
+      {
+        "Id": 84,
+        "Title": "Erstelle einen neuen GSuit-Account",
+        "Instruction": "- Lassen Sie GSuite ein Zufallspasswort erstellen\r\n- Kopieren Sie das Passwort in die Zwischenablage. *Erstellen Sie in Ihrem pers\u00F6nlichen Bereich* auf GDrive ein neues Dokument mit der Vorlage \u201EInitiale Zugangsdaten\u201C und f\u00FCgen Sie die GSuite-Anmeldedaten in dieses Dokument ein. Drucken Sie es aus und stecken Sie die Papierversion in einen Umschlag, den Sie dem neuen Mitarbeiter aush\u00E4ndigen k\u00F6nnen. Stellen Sie sicher, dass Sie das Dokument in Ihrem GDrive l\u00F6schen.\r\n- Machen Sie den Benutzer zu einem Mitglied in der Organisationseinheit, die am besten zu seiner T\u00E4tigkeit passt\r\n- Klicken Sie auf \u0060Speichern\u0060.\r\n- Machen Sie den Benutzer zu einem Mitglied in den Gruppen \u0060alle\u0060 (beide) und \u0060entwickler\u0060, wenn er ein technischer Mitarbeiter ist\r\n- Teilen Sie Anne Kolbe von der Personalabteilung mit, dass das E-Mail-Konto jetzt eingerichtet ist. Sie wird dann ein Konto mit Time Machine f\u00FCr den neuen Mitarbeiter einrichten.",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 85,
+        "Title": "Erstelle gitlab-Account f\u00FCr Technik-Angestellte",
+        "Instruction": "Erstelle einen neuen Gitlab-Account (https://code.makandra.de/admin/users/new) und maile das Passwort zu dem Nutzer falls der Nutzer ein Technik-Angestellter ist",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 86,
+        "Title": "Lade den Angestellten zu Kartendecks ein",
+        "Instruction": "Lade den Nutzer zu den folgenden Kartendecks ein: \u0060dev\u0060, \u0060orga\u0060, \u0060besprechungsprotokolle\u0060, \u0060zammad\u0060, \u0060makandra operations\u0060, \u0060makandra projektvorstellungen\u0060 und\u0060makandra-projektleitung-curriculum\u0060.",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 87,
+        "Title": "Einladung in Slack",
+        "Instruction": "Frage eine Einladung in Slack an, indem du auf den rechten-oberen Knopf dr\u00FCckst und f\u00FClle die Form aus. Die Anfrage wird automatisch genehmight da die Email mit @makandra.de endet",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 88,
+        "Title": "(Falls n\u00F6tig) Erstelle Sipgate-Account",
+        "Instruction": "Note: Wir erstellen standardm\u00E4\u00DFig keinen teuren Sipgate-Account mehr da die Meisten von uns ihr Handy sowieso nicht benutzen. Falls die Job-Beschreibung des neuen Angstellten darauf hinweist, dass dieser einen braucht, dann erstelle trotzdem einen Account. (z.B. wenn sie im Backoffice oder Marketing-Team arbeiten",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 89,
+        "Title": "Rahmenbedingung zu Vertrag einholen (bei Vertragsunterzeichnung)",
+        "Instruction": "- Informationen zu Rahmenbedingungen des Vertrags einholen\r\n- Vertrag erstellen\r\n- Vertrag vor ab neuen Mitarbeitenden per Mail senden\r\n- Vertrag unterschreiben lassen durch Gesch\u00E4ftsf\u00FChrung\r\n- Personalbogen inkl. erforderlicher Unterlagen per Mail an neuen MA zusenden und ablegen\r\n- Unterst\u00FCtzung f\u00FCr Umzug (500 \u20AC) ja/nein abfragen\r\n- Unterst\u00FCtzung f\u00FCr Umzug (500 \u20AC) an Personal kommunizieren",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "gerhard@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 90,
+        "Title": "Weitergabe der Informationen von Vertrag",
+        "Instruction": "- Unterlagen in den jeweiligen Monatsordner f\u00FCr Gehaltsabrechnung DSG hochladen (Vertrag, PB, Perso, SV-Ausweis) und in der \u00DCbersicht \u00C4nderungen einpflegen\r\n- Mail an Ops wegen Vorbereitung/ Bestellung Hardware (Laptop, Handy, etc.) und Einrichtung Accounts:\r\n\r\nBetreff: Neue MA: XXX\r\nLiebes Ops-Team,\r\nbitte bereitet a) Hardware und b) Accounts f\u00FCr unseren neuen Mitarbeitenden XXX\r\nvor. Er beginnt am XX.YY.ZZZZ als XXX und bekommt die Default-Ausstattung.\r\nBitte gebt mir Bescheid, ob und wann die Ausr\u00FCstung bereit liegt.\r\nDanke und viele Gr\u00FC\u00DFe\r\n\r\n- Backoffice bez\u00FCglich Informationen und Termin anschreiben\r\n\r\nLiebes Backoffice-Team,\r\nwir bekommen am XX.YY.ZZZZ einen neuen Mitarbeitenden: XXX in der Position als XXX. Bitte bereitet unseren makandra-Rucksack inklusive Karte sowie Schl\u00FCssel vor und bestellt ein vegetarisches Mittagessen f\u00FCr sie/ihn.\r\nPlant am zweiten Tag auch eine kleine F\u00FChrung durch unser B\u00FCro und auch unser\r\nGeb\u00E4ude mit ein und stellt hier gleich einen Termin mit mir ein.\r\nBitte versendet auch das Willkommenspaket etwa vier Wochen vor Arbeitsbeginn\r\nfolgende Privatadresse: XXX.\r\n\u00DCber die genaue Uhrzeit am ersten Arbeitstag informiere ich euch noch in einer\r\nextra E-Mail.\r\nBuddy wird XXX sein und ist bereits informiert.\r\nBitte gebt mir Bescheid, ob und wann die Ausr\u00FCstung bereit liegt.\r\nDanke und viele Gr\u00FC\u00DFe\r\n- Buddy anfragen/ informieren und Kontakt vermitteln zur Kontaktaufnahme im Vorfeld",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "gerhard@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 91,
+        "Title": "Preboarding (Vertragsunterzeichnung bis Antritt",
+        "Instruction": "- Einladung neuer MA zu anstehenden Teamevents\r\n- Vernetzung \u00FCber Soziale Medien\r\n- Versand Willkommens-Box (Backoce)\r\n- Mail zum 1. Tag im B\u00FCro, Vorabinformationen (One Pager - FAQs erster Tag), Uhrzeit,\r\nParkm\u00F6glichkeiten, Kleidergr\u00F6\u00DFe und Ansprechpartnern vor Ort",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "gerhard@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 92,
+        "Title": "Organisatorisches vorm Start",
+        "Instruction": "- Anlegen in der Time Machine, Einrichten Deskbot-Account und erfragen Mailadresse bei Ops\r\n- Eintr\u00E4ge im Bereich \u0022Team\u0022: Senior-Peer, Bereich, Festanstellung seit, Position und\r\nPosition seit\r\n- Kl\u00E4ren Zuordnung Monthly Peer mit GL-Runde\r\nKl\u00E4ren Zuordnung Buddy\r\n- Mail an Backoce zur genauen Uhrzeit und Kleidergr\u00F6\u00DFe\r\nMail Ops wegen Ansprechpartner vor Ort\r\n- Mail Buddy wegen Anwesenheit im B\u00FCro\r\nBrief ausdrucken\r\n- Willkommensmail an das Team \u00FCber alle@ versenden\r\n\r\n### Festangestellt\r\nLiebes Team,\r\n_Vorname_ _Nachname_ wird uns ab dem DD.MM.YYYY im Bereich Entwicklung /\r\nBackoffice / Operations / UI/UX / Marketing unterst\u00FCtzen.\r\nHerzlich Willkommen bei makandra!\r\nViele Gr\u00FC\u00DFe\r\n### Trainee\r\nLiebes Team,\r\n_Vorname_ _Nachname_ wird ab dem DD.MM.YYYY unser Trainee-Programm im Bereich\r\nEntwicklung / Operations absolvieren.\r\nHerzlich Willkommen bei makandra und viel Erfolg!\r\nViele Gr\u00FC\u00DFe",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "gerhard@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 95,
+        "Title": "1. Tag | Backoffice-ToDo",
+        "Instruction": "- Empfang ist mit People \u0026 Culture-Team\r\n- B\u00FCrof\u00FChrung, Vorstellung Kolleg*innen und Schl\u00FCssel-/ Karten\u00FCbergabe durch Backoffice",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 96,
+        "Title": "1. Tag | People \u0026 Culture-ToDo",
+        "Instruction": "- Empfang mit Backoffice-Team\r\n- Erkl\u00E4rung Organisatorisches und fehlende Unterlagen (NachwG, Datenschutz) durch People \u0026 Culture",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 97,
+        "Title": "1. Tag | Ops-ToDO",
+        "Instruction": "- Begleitung durch Ops bei der Einrichtung PC\r\n- Einrichtung PC und Accounts abschlie\u00DFen inkl. Erstellung Sicherungskopie mit Ops",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 98,
+        "Title": "1. Tag | Vorgangsverantwortlicher",
+        "Instruction": "- \u00DCbergabe Package, Schl\u00FCssel, Karte und Hardware\r\n- Vorstellung Buddy\r\n- Gemeinsames Mittagessen mit Buddy\r\n- Begr\u00FC\u00DFung im Weekly",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "gerhard@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 99,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | Erste Feedbackrunde",
+        "Instruction": "Angekommen? Erwartungen? Fragen? Onboarding-Card 2. Teil?",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 100,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | Zweite Fragerunde",
+        "Instruction": "Angekommen? Erwartungen und Zufriedenheit? Verbesserungsvorschl\u00E4ge?",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 101,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | dritte Fragerunde",
+        "Instruction": "Angekommen? Perspektiven? Probezeitende",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 102,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | Termine",
+        "Instruction": "- Termine f\u00FCr Onboarding-Gespr\u00E4che\r\n- Termine f\u00FCr Probezeit und Festanstellung Trainee",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "gerhard@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 103,
+        "Title": "Austellung des neuen Mitarbeits mit Hardware",
+        "Instruction": "- Notebook\r\n- Externe USB-Festplatte zum Erstellen von Backups deines Laptops Tastatur\r\n- Headset (Beachte: Bei unserem Standard-Headset gibt es am Kabel einen Schalter, der am Anfang auf stumm gestellt ist.)\r\n- Maus\r\n- Mauspad\r\n- In-Ear-Kopfh\u00F6rer zum H\u00F6ren von Musik. Verwende dazu bitte keine Over-Ear-Kopfh\u00F6rer (es sei denn, sie haben ein geschlossenes Design), da andere Personen im selben Raum alles h\u00F6ren k\u00F6nnen.",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "admin@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 104,
+        "Title": "Grundlagen der B\u00FCro-IT-Sicherheit",
+        "Instruction": "- Lies dir durch und merk dir, wie wir mit Passw\u00F6rtern, Browsererweiterungen und\r\nSicherheitsgrundlagen umgehen.\r\n- Frag unseren Informationssicherheitsbeauftragten (ISB), wie wir mit Passw\u00F6rtern umgehen. Es wird von dir erwartet, dass du eindeutige, nicht speicherbare Passw\u00F6rter f\u00FCr jedes deiner Konten in Keepass erstellst und dir niemals ein Passwort merkst, au\u00DFer f\u00FCr deine Festplattenverschl\u00FCsselung, deinen Linux-Benutzer und dein Keepass.\r\n- Bitte verwende keine privaten Ger\u00E4te f\u00FCr die Arbeit, au\u00DFer bei den im Lauf des Onboardings ausdr\u00FCcklich genannten Ausnahmen.",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "karl@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 105,
+        "Title": "Anmeldedaten einrichten | Kein Passw\u00F6rter mit Google Chrome cloud synchronisieren ",
+        "Instruction": "Stelle sicher, dass du deine Passw\u00F6rter nicht mit der Google Chrome Cloud synchronisierst.",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "karl@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 106,
+        "Title": "Anmeldedaten einrichten | Rest",
+        "Instruction": "- Erstelle einen neuen Basic-Auth-Passwort-Hash und schicke ihn per E-Mail an ops@makandra.de.\r\n- Sende diesen Passwort-Hash an ops@makandra.de und bitte darum, in die allgemeine Basisauthentizierung von makandra aufgenommen zu werden.",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "karl@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          "Festanstellung"
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 107,
+        "Title": "Erste Schritte mit Gitlab",
+        "Instruction": "- Ops hat einen Gitlab-Benutzer f\u00FCr dich erstellt. Du solltest eine E-Mail mit einem tempor\u00E4ren Passwort erhalten haben.\r\n- F\u00FCge deinen SSH-Schl\u00FCssel in dein GitLab-Profil ein.\r\n- Du darfst dein privates Smartphone f\u00FCr die erforderliche Zwei-Faktoren-Authentifizierung\r\nverwenden.\r\n- Richte eine vern\u00FCnftige git-config ein.",
+        "TargetDate": "2024-07-27",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "karl@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          "Operations",
+          "Entwicklung"
+        ]
+      }
+    ],
+    "Archived": false
+  },
+  {
+    "Id": 6,
+    "Title": "Onboarding f\u00FCr Wilma Ruhe",
+    "Description": "Onboarding",
+    "TargetDate": "2024-10-13",
+    "ContractTypeString": "Trainee",
+    "DepartmentString": "Entwicklung",
+    "PersonInChargeMail": "bill@replay.de",
+    "ReferencePersonMail": "wilma@replay.de",
+    "Tasks": [
+      {
+        "Id": 108,
+        "Title": "Erstelle einen neuen GSuit-Account",
+        "Instruction": "- Lassen Sie GSuite ein Zufallspasswort erstellen\r\n- Kopieren Sie das Passwort in die Zwischenablage. *Erstellen Sie in Ihrem pers\u00F6nlichen Bereich* auf GDrive ein neues Dokument mit der Vorlage \u201EInitiale Zugangsdaten\u201C und f\u00FCgen Sie die GSuite-Anmeldedaten in dieses Dokument ein. Drucken Sie es aus und stecken Sie die Papierversion in einen Umschlag, den Sie dem neuen Mitarbeiter aush\u00E4ndigen k\u00F6nnen. Stellen Sie sicher, dass Sie das Dokument in Ihrem GDrive l\u00F6schen.\r\n- Machen Sie den Benutzer zu einem Mitglied in der Organisationseinheit, die am besten zu seiner T\u00E4tigkeit passt\r\n- Klicken Sie auf \u0060Speichern\u0060.\r\n- Machen Sie den Benutzer zu einem Mitglied in den Gruppen \u0060alle\u0060 (beide) und \u0060entwickler\u0060, wenn er ein technischer Mitarbeiter ist\r\n- Teilen Sie Anne Kolbe von der Personalabteilung mit, dass das E-Mail-Konto jetzt eingerichtet ist. Sie wird dann ein Konto mit Time Machine f\u00FCr den neuen Mitarbeiter einrichten.",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 109,
+        "Title": "Erstelle gitlab-Account f\u00FCr Technik-Angestellte",
+        "Instruction": "Erstelle einen neuen Gitlab-Account (https://code.makandra.de/admin/users/new) und maile das Passwort zu dem Nutzer falls der Nutzer ein Technik-Angestellter ist",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 110,
+        "Title": "Lade den Angestellten zu Kartendecks ein",
+        "Instruction": "Lade den Nutzer zu den folgenden Kartendecks ein: \u0060dev\u0060, \u0060orga\u0060, \u0060besprechungsprotokolle\u0060, \u0060zammad\u0060, \u0060makandra operations\u0060, \u0060makandra projektvorstellungen\u0060 und\u0060makandra-projektleitung-curriculum\u0060.",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 111,
+        "Title": "Einladung in Slack",
+        "Instruction": "Frage eine Einladung in Slack an, indem du auf den rechten-oberen Knopf dr\u00FCckst und f\u00FClle die Form aus. Die Anfrage wird automatisch genehmight da die Email mit @makandra.de endet",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 112,
+        "Title": "(Falls n\u00F6tig) Erstelle Sipgate-Account",
+        "Instruction": "Note: Wir erstellen standardm\u00E4\u00DFig keinen teuren Sipgate-Account mehr da die Meisten von uns ihr Handy sowieso nicht benutzen. Falls die Job-Beschreibung des neuen Angstellten darauf hinweist, dass dieser einen braucht, dann erstelle trotzdem einen Account. (z.B. wenn sie im Backoffice oder Marketing-Team arbeiten",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 113,
+        "Title": "Rahmenbedingung zu Vertrag einholen (bei Vertragsunterzeichnung)",
+        "Instruction": "- Informationen zu Rahmenbedingungen des Vertrags einholen\r\n- Vertrag erstellen\r\n- Vertrag vor ab neuen Mitarbeitenden per Mail senden\r\n- Vertrag unterschreiben lassen durch Gesch\u00E4ftsf\u00FChrung\r\n- Personalbogen inkl. erforderlicher Unterlagen per Mail an neuen MA zusenden und ablegen\r\n- Unterst\u00FCtzung f\u00FCr Umzug (500 \u20AC) ja/nein abfragen\r\n- Unterst\u00FCtzung f\u00FCr Umzug (500 \u20AC) an Personal kommunizieren",
+        "TargetDate": "2024-07-26",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "bill@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 114,
+        "Title": "Weitergabe der Informationen von Vertrag",
+        "Instruction": "- Unterlagen in den jeweiligen Monatsordner f\u00FCr Gehaltsabrechnung DSG hochladen (Vertrag, PB, Perso, SV-Ausweis) und in der \u00DCbersicht \u00C4nderungen einpflegen\r\n- Mail an Ops wegen Vorbereitung/ Bestellung Hardware (Laptop, Handy, etc.) und Einrichtung Accounts:\r\n\r\nBetreff: Neue MA: XXX\r\nLiebes Ops-Team,\r\nbitte bereitet a) Hardware und b) Accounts f\u00FCr unseren neuen Mitarbeitenden XXX\r\nvor. Er beginnt am XX.YY.ZZZZ als XXX und bekommt die Default-Ausstattung.\r\nBitte gebt mir Bescheid, ob und wann die Ausr\u00FCstung bereit liegt.\r\nDanke und viele Gr\u00FC\u00DFe\r\n\r\n- Backoffice bez\u00FCglich Informationen und Termin anschreiben\r\n\r\nLiebes Backoffice-Team,\r\nwir bekommen am XX.YY.ZZZZ einen neuen Mitarbeitenden: XXX in der Position als XXX. Bitte bereitet unseren makandra-Rucksack inklusive Karte sowie Schl\u00FCssel vor und bestellt ein vegetarisches Mittagessen f\u00FCr sie/ihn.\r\nPlant am zweiten Tag auch eine kleine F\u00FChrung durch unser B\u00FCro und auch unser\r\nGeb\u00E4ude mit ein und stellt hier gleich einen Termin mit mir ein.\r\nBitte versendet auch das Willkommenspaket etwa vier Wochen vor Arbeitsbeginn\r\nfolgende Privatadresse: XXX.\r\n\u00DCber die genaue Uhrzeit am ersten Arbeitstag informiere ich euch noch in einer\r\nextra E-Mail.\r\nBuddy wird XXX sein und ist bereits informiert.\r\nBitte gebt mir Bescheid, ob und wann die Ausr\u00FCstung bereit liegt.\r\nDanke und viele Gr\u00FC\u00DFe\r\n- Buddy anfragen/ informieren und Kontakt vermitteln zur Kontaktaufnahme im Vorfeld",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "bill@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 115,
+        "Title": "Preboarding (Vertragsunterzeichnung bis Antritt",
+        "Instruction": "- Einladung neuer MA zu anstehenden Teamevents\r\n- Vernetzung \u00FCber Soziale Medien\r\n- Versand Willkommens-Box (Backoce)\r\n- Mail zum 1. Tag im B\u00FCro, Vorabinformationen (One Pager - FAQs erster Tag), Uhrzeit,\r\nParkm\u00F6glichkeiten, Kleidergr\u00F6\u00DFe und Ansprechpartnern vor Ort",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "bill@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 116,
+        "Title": "Organisatorisches vorm Start",
+        "Instruction": "- Anlegen in der Time Machine, Einrichten Deskbot-Account und erfragen Mailadresse bei Ops\r\n- Eintr\u00E4ge im Bereich \u0022Team\u0022: Senior-Peer, Bereich, Festanstellung seit, Position und\r\nPosition seit\r\n- Kl\u00E4ren Zuordnung Monthly Peer mit GL-Runde\r\nKl\u00E4ren Zuordnung Buddy\r\n- Mail an Backoce zur genauen Uhrzeit und Kleidergr\u00F6\u00DFe\r\nMail Ops wegen Ansprechpartner vor Ort\r\n- Mail Buddy wegen Anwesenheit im B\u00FCro\r\nBrief ausdrucken\r\n- Willkommensmail an das Team \u00FCber alle@ versenden\r\n\r\n### Festangestellt\r\nLiebes Team,\r\n_Vorname_ _Nachname_ wird uns ab dem DD.MM.YYYY im Bereich Entwicklung /\r\nBackoffice / Operations / UI/UX / Marketing unterst\u00FCtzen.\r\nHerzlich Willkommen bei makandra!\r\nViele Gr\u00FC\u00DFe\r\n### Trainee\r\nLiebes Team,\r\n_Vorname_ _Nachname_ wird ab dem DD.MM.YYYY unser Trainee-Programm im Bereich\r\nEntwicklung / Operations absolvieren.\r\nHerzlich Willkommen bei makandra und viel Erfolg!\r\nViele Gr\u00FC\u00DFe",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "bill@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 119,
+        "Title": "1. Tag | Backoffice-ToDo",
+        "Instruction": "- Empfang ist mit People \u0026 Culture-Team\r\n- B\u00FCrof\u00FChrung, Vorstellung Kolleg*innen und Schl\u00FCssel-/ Karten\u00FCbergabe durch Backoffice",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "Backoffice",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 120,
+        "Title": "1. Tag | People \u0026 Culture-ToDo",
+        "Instruction": "- Empfang mit Backoffice-Team\r\n- Erkl\u00E4rung Organisatorisches und fehlende Unterlagen (NachwG, Datenschutz) durch People \u0026 Culture",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "Personal",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 121,
+        "Title": "1. Tag | Ops-ToDO",
+        "Instruction": "- Begleitung durch Ops bei der Einrichtung PC\r\n- Einrichtung PC und Accounts abschlie\u00DFen inkl. Erstellung Sicherungskopie mit Ops",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 122,
+        "Title": "1. Tag | Vorgangsverantwortlicher",
+        "Instruction": "- \u00DCbergabe Package, Schl\u00FCssel, Karte und Hardware\r\n- Vorstellung Buddy\r\n- Gemeinsames Mittagessen mit Buddy\r\n- Begr\u00FC\u00DFung im Weekly",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "bill@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 123,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | Erste Feedbackrunde",
+        "Instruction": "Angekommen? Erwartungen? Fragen? Onboarding-Card 2. Teil?",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "Personal",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 124,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | Zweite Fragerunde",
+        "Instruction": "Angekommen? Erwartungen und Zufriedenheit? Verbesserungsvorschl\u00E4ge?",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "Personal",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 125,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | dritte Fragerunde",
+        "Instruction": "Angekommen? Perspektiven? Probezeitende",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "Gesch\u00E4ftsleitung",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 126,
+        "Title": "Feedbackrunden in den ersten 6 Monaten | Termine",
+        "Instruction": "- Termine f\u00FCr Onboarding-Gespr\u00E4che\r\n- Termine f\u00FCr Probezeit und Festanstellung Trainee",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "bill@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 127,
+        "Title": "Austellung des neuen Mitarbeits mit Hardware",
+        "Instruction": "- Notebook\r\n- Externe USB-Festplatte zum Erstellen von Backups deines Laptops Tastatur\r\n- Headset (Beachte: Bei unserem Standard-Headset gibt es am Kabel einen Schalter, der am Anfang auf stumm gestellt ist.)\r\n- Maus\r\n- Mauspad\r\n- In-Ear-Kopfh\u00F6rer zum H\u00F6ren von Musik. Verwende dazu bitte keine Over-Ear-Kopfh\u00F6rer (es sei denn, sie haben ein geschlossenes Design), da andere Personen im selben Raum alles h\u00F6ren k\u00F6nnen.",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "IT",
+        "ResponsibleTaskOwnerType": "role",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 128,
+        "Title": "Grundlagen der B\u00FCro-IT-Sicherheit",
+        "Instruction": "- Lies dir durch und merk dir, wie wir mit Passw\u00F6rtern, Browsererweiterungen und\r\nSicherheitsgrundlagen umgehen.\r\n- Frag unseren Informationssicherheitsbeauftragten (ISB), wie wir mit Passw\u00F6rtern umgehen. Es wird von dir erwartet, dass du eindeutige, nicht speicherbare Passw\u00F6rter f\u00FCr jedes deiner Konten in Keepass erstellst und dir niemals ein Passwort merkst, au\u00DFer f\u00FCr deine Festplattenverschl\u00FCsselung, deinen Linux-Benutzer und dein Keepass.\r\n- Bitte verwende keine privaten Ger\u00E4te f\u00FCr die Arbeit, au\u00DFer bei den im Lauf des Onboardings ausdr\u00FCcklich genannten Ausnahmen.",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "wilma@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 129,
+        "Title": "Anmeldedaten einrichten | Kein Passw\u00F6rter mit Google Chrome cloud synchronisieren ",
+        "Instruction": "Stelle sicher, dass du deine Passw\u00F6rter nicht mit der Google Chrome Cloud synchronisierst.",
+        "TargetDate": "2024-10-13",
+        "StatusString": "in Bearbeitung",
+        "ResponsibleTaskOwnerName": "wilma@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 130,
+        "Title": "Anmeldedaten einrichten | Rest",
+        "Instruction": "- Erstelle einen neuen Basic-Auth-Passwort-Hash und schicke ihn per E-Mail an ops@makandra.de.\r\n- Sende diesen Passwort-Hash an ops@makandra.de und bitte darum, in die allgemeine Basisauthentizierung von makandra aufgenommen zu werden.",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "wilma@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          "Festanstellung"
+        ],
+        "Departments": [
+          ""
+        ]
+      },
+      {
+        "Id": 131,
+        "Title": "Erste Schritte mit Gitlab",
+        "Instruction": "- Ops hat einen Gitlab-Benutzer f\u00FCr dich erstellt. Du solltest eine E-Mail mit einem tempor\u00E4ren Passwort erhalten haben.\r\n- F\u00FCge deinen SSH-Schl\u00FCssel in dein GitLab-Profil ein.\r\n- Du darfst dein privates Smartphone f\u00FCr die erforderliche Zwei-Faktoren-Authentifizierung\r\nverwenden.\r\n- Richte eine vern\u00FCnftige git-config ein.",
+        "TargetDate": "2024-10-13",
+        "StatusString": "bearbeitet",
+        "ResponsibleTaskOwnerName": "wilma@replay.de",
+        "ResponsibleTaskOwnerType": "user",
+        "ContractTypes": [
+          ""
+        ],
+        "Departments": [
+          "Operations",
+          "Entwicklung"
+        ]
+      }
+    ],
+    "Archived": false
+  }
+],
+  "processes": [
+    {
+      "Id": 1,
+      "Title": "Onboarding",
+      "Description": "Onboarding",
+      "ContractType": null,
+      "Department": null,
+      "Tasks": [
+        {
+          "Id": 1,
+          "Title": "Erstelle einen neuen GSuit-Account",
+          "Description": "- Lassen Sie GSuite ein Zufallspasswort erstellen\r\n- Kopieren Sie das Passwort in die Zwischenablage. *Erstellen Sie in Ihrem pers\u00F6nlichen Bereich* auf GDrive ein neues Dokument mit der Vorlage \u201EInitiale Zugangsdaten\u201C und f\u00FCgen Sie die GSuite-Anmeldedaten in dieses Dokument ein. Drucken Sie es aus und stecken Sie die Papierversion in einen Umschlag, den Sie dem neuen Mitarbeiter aush\u00E4ndigen k\u00F6nnen. Stellen Sie sicher, dass Sie das Dokument in Ihrem GDrive l\u00F6schen.\r\n- Machen Sie den Benutzer zu einem Mitglied in der Organisationseinheit, die am besten zu seiner T\u00E4tigkeit passt\r\n- Klicken Sie auf \u0060Speichern\u0060.\r\n- Machen Sie den Benutzer zu einem Mitglied in den Gruppen \u0060alle\u0060 (beide) und \u0060entwickler\u0060, wenn er ein technischer Mitarbeiter ist\r\n- Teilen Sie Anne Kolbe von der Personalabteilung mit, dass das E-Mail-Konto jetzt eingerichtet ist. Sie wird dann ein Konto mit Time Machine f\u00FCr den neuen Mitarbeiter einrichten.",
+          "DueDate": {
+            "Id": 12,
+            "DefaultValue": "ASAP",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "IT",
+          "Departments": [
+            ""
+          ],
+          "ContractTypes": [
+            ""
+          ]
+        },
+        {
+          "Id": 2,
+          "Title": "Erstelle gitlab-Account f\u00FCr Technik-Angestellte",
+          "Description": "Erstelle einen neuen Gitlab-Account (https://code.makandra.de/admin/users/new) und maile das Passwort zu dem Nutzer falls der Nutzer ein Technik-Angestellter ist",
+          "DueDate": {
+            "Id": 2,
+            "DefaultValue": "ASAP",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "IT",
+          "Departments": [
+            ""
+          ],
+          "ContractTypes": [
+            ""
+          ]
+        },
+        {
+          "Id": 3,
+          "Title": "Lade den Angestellten zu Kartendecks ein",
+          "Description": "Lade den Nutzer zu den folgenden Kartendecks ein: \u0060dev\u0060, \u0060orga\u0060, \u0060besprechungsprotokolle\u0060, \u0060zammad\u0060, \u0060makandra operations\u0060, \u0060makandra projektvorstellungen\u0060 und\u0060makandra-projektleitung-curriculum\u0060.",
+          "DueDate": {
+            "Id": 3,
+            "DefaultValue": "ASAP",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "IT",
+          "Departments": [
+            ""
+          ],
+          "ContractTypes": [
+            ""
+          ]
+        },
+        {
+          "Id": 4,
+          "Title": "Einladung in Slack",
+          "Description": "Frage eine Einladung in Slack an, indem du auf den rechten-oberen Knopf dr\u00FCckst und f\u00FClle die Form aus. Die Anfrage wird automatisch genehmight da die Email mit @makandra.de endet",
+          "DueDate": {
+            "Id": 4,
+            "DefaultValue": "ASAP",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "IT",
+          "Departments": [
+            ""
+          ],
+          "ContractTypes": [
+            ""
+          ]
+        },
+        {
+          "Id": 5,
+          "Title": "(Falls n\u00F6tig) Erstelle Sipgate-Account",
+          "Description": "Note: Wir erstellen standardm\u00E4\u00DFig keinen teuren Sipgate-Account mehr da die Meisten von uns ihr Handy sowieso nicht benutzen. Falls die Job-Beschreibung des neuen Angstellten darauf hinweist, dass dieser einen braucht, dann erstelle trotzdem einen Account. (z.B. wenn sie im Backoffice oder Marketing-Team arbeiten",
+          "DueDate": {
+            "Id": 13,
+            "DefaultValue": "ASAP",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "IT",
+          "Departments": [
+            ""
+          ],
+          "ContractTypes": [
+            ""
+          ]
+        },
+        {
+          "Id": 6,
+          "Title": "Rahmenbedingung zu Vertrag einholen (bei Vertragsunterzeichnung)",
+          "Description": "- Informationen zu Rahmenbedingungen des Vertrags einholen\r\n- Vertrag erstellen\r\n- Vertrag vor ab neuen Mitarbeitenden per Mail senden\r\n- Vertrag unterschreiben lassen durch Gesch\u00E4ftsf\u00FChrung\r\n- Personalbogen inkl. erforderlicher Unterlagen per Mail an neuen MA zusenden und ablegen\r\n- Unterst\u00FCtzung f\u00FCr Umzug (500 \u20AC) ja/nein abfragen\r\n- Unterst\u00FCtzung f\u00FCr Umzug (500 \u20AC) an Personal kommunizieren",
+          "DueDate": {
+            "Id": 6,
+            "DefaultValue": "ASAP",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "responsibleperson",
+          "TaskResponsibleName": null,
+          "Departments": [
+            ""
+          ],
+          "ContractTypes": [
+            ""
+          ]
+        },
+        {
+          "Id": 7,
+          "Title": "Weitergabe der Informationen von Vertrag",
+          "Description": "- Unterlagen in den jeweiligen Monatsordner f\u00FCr Gehaltsabrechnung DSG hochladen (Vertrag, PB, Perso, SV-Ausweis) und in der \u00DCbersicht \u00C4nderungen einpflegen\r\n- Mail an Ops wegen Vorbereitung/ Bestellung Hardware (Laptop, Handy, etc.) und Einrichtung Accounts:\r\n\r\nBetreff: Neue MA: XXX\r\nLiebes Ops-Team,\r\nbitte bereitet a) Hardware und b) Accounts f\u00FCr unseren neuen Mitarbeitenden XXX\r\nvor. Er beginnt am XX.YY.ZZZZ als XXX und bekommt die Default-Ausstattung.\r\nBitte gebt mir Bescheid, ob und wann die Ausr\u00FCstung bereit liegt.\r\nDanke und viele Gr\u00FC\u00DFe\r\n\r\n- Backoffice bez\u00FCglich Informationen und Termin anschreiben\r\n\r\nLiebes Backoffice-Team,\r\nwir bekommen am XX.YY.ZZZZ einen neuen Mitarbeitenden: XXX in der Position als XXX. Bitte bereitet unseren makandra-Rucksack inklusive Karte sowie Schl\u00FCssel vor und bestellt ein vegetarisches Mittagessen f\u00FCr sie/ihn.\r\nPlant am zweiten Tag auch eine kleine F\u00FChrung durch unser B\u00FCro und auch unser\r\nGeb\u00E4ude mit ein und stellt hier gleich einen Termin mit mir ein.\r\nBitte versendet auch das Willkommenspaket etwa vier Wochen vor Arbeitsbeginn\r\nfolgende Privatadresse: XXX.\r\n\u00DCber die genaue Uhrzeit am ersten Arbeitstag informiere ich euch noch in einer\r\nextra E-Mail.\r\nBuddy wird XXX sein und ist bereits informiert.\r\nBitte gebt mir Bescheid, ob und wann die Ausr\u00FCstung bereit liegt.\r\nDanke und viele Gr\u00FC\u00DFe\r\n- Buddy anfragen/ informieren und Kontakt vermitteln zur Kontaktaufnahme im Vorfeld",
+          "DueDate": {
+            "Id": 28,
+            "DefaultValue": "custom",
+            "Counter": 1,
+            "TimeUnit": "months",
+            "IsBefore": true,
+            "Title": null
+          },
+          "TaskResponsibleType": "responsibleperson",
+          "TaskResponsibleName": null,
+          "Departments": [
+            ""
+          ],
+          "ContractTypes": [
+            ""
+          ]
+        },
+        {
+          "Id": 8,
+          "Title": "Preboarding (Vertragsunterzeichnung bis Antritt",
+          "Description": "- Einladung neuer MA zu anstehenden Teamevents\r\n- Vernetzung \u00FCber Soziale Medien\r\n- Versand Willkommens-Box (Backoce)\r\n- Mail zum 1. Tag im B\u00FCro, Vorabinformationen (One Pager - FAQs erster Tag), Uhrzeit,\r\nParkm\u00F6glichkeiten, Kleidergr\u00F6\u00DFe und Ansprechpartnern vor Ort",
+          "DueDate": {
+            "Id": 8,
+            "DefaultValue": "Am ersten Arbeitstag",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "responsibleperson",
+          "TaskResponsibleName": null,
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 9,
+          "Title": "Organisatorisches vorm Start",
+          "Description": "- Anlegen in der Time Machine, Einrichten Deskbot-Account und erfragen Mailadresse bei Ops\r\n- Eintr\u00E4ge im Bereich \u0022Team\u0022: Senior-Peer, Bereich, Festanstellung seit, Position und\r\nPosition seit\r\n- Kl\u00E4ren Zuordnung Monthly Peer mit GL-Runde\r\nKl\u00E4ren Zuordnung Buddy\r\n- Mail an Backoce zur genauen Uhrzeit und Kleidergr\u00F6\u00DFe\r\nMail Ops wegen Ansprechpartner vor Ort\r\n- Mail Buddy wegen Anwesenheit im B\u00FCro\r\nBrief ausdrucken\r\n- Willkommensmail an das Team \u00FCber alle@ versenden\r\n\r\n### Festangestellt\r\nLiebes Team,\r\n_Vorname_ _Nachname_ wird uns ab dem DD.MM.YYYY im Bereich Entwicklung /\r\nBackoffice / Operations / UI/UX / Marketing unterst\u00FCtzen.\r\nHerzlich Willkommen bei makandra!\r\nViele Gr\u00FC\u00DFe\r\n### Trainee\r\nLiebes Team,\r\n_Vorname_ _Nachname_ wird ab dem DD.MM.YYYY unser Trainee-Programm im Bereich\r\nEntwicklung / Operations absolvieren.\r\nHerzlich Willkommen bei makandra und viel Erfolg!\r\nViele Gr\u00FC\u00DFe",
+          "DueDate": {
+            "Id": 9,
+            "DefaultValue": "custom",
+            "Counter": 1,
+            "TimeUnit": "weeks",
+            "IsBefore": true,
+            "Title": null
+          },
+          "TaskResponsibleType": "responsibleperson",
+          "TaskResponsibleName": null,
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 10,
+          "Title": "1. Tag | Backoffice-ToDo",
+          "Description": "- Empfang ist mit People \u0026 Culture-Team\r\n- B\u00FCrof\u00FChrung, Vorstellung Kolleg*innen und Schl\u00FCssel-/ Karten\u00FCbergabe durch Backoffice",
+          "DueDate": {
+            "Id": 17,
+            "DefaultValue": "Am ersten Arbeitstag",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "Backoffice",
+          "Departments": [
+            ""
+          ],
+          "ContractTypes": [
+            ""
+          ]
+        },
+        {
+          "Id": 11,
+          "Title": "1. Tag | People \u0026 Culture-ToDo",
+          "Description": "- Empfang mit Backoffice-Team\r\n- Erkl\u00E4rung Organisatorisches und fehlende Unterlagen (NachwG, Datenschutz) durch People \u0026 Culture",
+          "DueDate": {
+            "Id": 18,
+            "DefaultValue": "Am ersten Arbeitstag",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "Personal",
+          "Departments": [
+            ""
+          ],
+          "ContractTypes": [
+            ""
+          ]
+        },
+        {
+          "Id": 12,
+          "Title": "1. Tag | Ops-ToDO",
+          "Description": "- Begleitung durch Ops bei der Einrichtung PC\r\n- Einrichtung PC und Accounts abschlie\u00DFen inkl. Erstellung Sicherungskopie mit Ops",
+          "DueDate": {
+            "Id": 19,
+            "DefaultValue": "Am ersten Arbeitstag",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "IT",
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 13,
+          "Title": "1. Tag | Vorgangsverantwortlicher",
+          "Description": "- \u00DCbergabe Package, Schl\u00FCssel, Karte und Hardware\r\n- Vorstellung Buddy\r\n- Gemeinsames Mittagessen mit Buddy\r\n- Begr\u00FC\u00DFung im Weekly",
+          "DueDate": {
+            "Id": 20,
+            "DefaultValue": "Am ersten Arbeitstag",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "responsibleperson",
+          "TaskResponsibleName": null,
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 14,
+          "Title": "Feedbackrunden in den ersten 6 Monaten | Erste Feedbackrunde",
+          "Description": "Angekommen? Erwartungen? Fragen? Onboarding-Card 2. Teil?",
+          "DueDate": {
+            "Id": 21,
+            "DefaultValue": "3 Wochen nach Arbeitsbeginn",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "Personal",
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 15,
+          "Title": "Feedbackrunden in den ersten 6 Monaten | Zweite Fragerunde",
+          "Description": "Angekommen? Erwartungen und Zufriedenheit? Verbesserungsvorschl\u00E4ge?",
+          "DueDate": {
+            "Id": 23,
+            "DefaultValue": "3 Monate nach Arbeitsbeginn",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "Personal",
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 16,
+          "Title": "Feedbackrunden in den ersten 6 Monaten | dritte Fragerunde",
+          "Description": "Angekommen? Perspektiven? Probezeitende",
+          "DueDate": {
+            "Id": 24,
+            "DefaultValue": "6 Monate nach Arbeitsbeginn",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "Gesch\u00E4ftsleitung",
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 17,
+          "Title": "Feedbackrunden in den ersten 6 Monaten | Termine",
+          "Description": "- Termine f\u00FCr Onboarding-Gespr\u00E4che\r\n- Termine f\u00FCr Probezeit und Festanstellung Trainee",
+          "DueDate": {
+            "Id": 25,
+            "DefaultValue": "6 Monate nach Arbeitsbeginn",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "responsibleperson",
+          "TaskResponsibleName": null,
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 18,
+          "Title": "Austellung des neuen Mitarbeits mit Hardware",
+          "Description": "- Notebook\r\n- Externe USB-Festplatte zum Erstellen von Backups deines Laptops Tastatur\r\n- Headset (Beachte: Bei unserem Standard-Headset gibt es am Kabel einen Schalter, der am Anfang auf stumm gestellt ist.)\r\n- Maus\r\n- Mauspad\r\n- In-Ear-Kopfh\u00F6rer zum H\u00F6ren von Musik. Verwende dazu bitte keine Over-Ear-Kopfh\u00F6rer (es sei denn, sie haben ein geschlossenes Design), da andere Personen im selben Raum alles h\u00F6ren k\u00F6nnen.",
+          "DueDate": {
+            "Id": 26,
+            "DefaultValue": "Am ersten Arbeitstag",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "role",
+          "TaskResponsibleName": "IT",
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 19,
+          "Title": "Grundlagen der B\u00FCro-IT-Sicherheit",
+          "Description": "- Lies dir durch und merk dir, wie wir mit Passw\u00F6rtern, Browsererweiterungen und\r\nSicherheitsgrundlagen umgehen.\r\n- Frag unseren Informationssicherheitsbeauftragten (ISB), wie wir mit Passw\u00F6rtern umgehen. Es wird von dir erwartet, dass du eindeutige, nicht speicherbare Passw\u00F6rter f\u00FCr jedes deiner Konten in Keepass erstellst und dir niemals ein Passwort merkst, au\u00DFer f\u00FCr deine Festplattenverschl\u00FCsselung, deinen Linux-Benutzer und dein Keepass.\r\n- Bitte verwende keine privaten Ger\u00E4te f\u00FCr die Arbeit, au\u00DFer bei den im Lauf des Onboardings ausdr\u00FCcklich genannten Ausnahmen.",
+          "DueDate": {
+            "Id": 29,
+            "DefaultValue": "Am ersten Arbeitstag",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "referenceperson",
+          "TaskResponsibleName": null,
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 20,
+          "Title": "Anmeldedaten einrichten | Kein Passw\u00F6rter mit Google Chrome cloud synchronisieren ",
+          "Description": "Stelle sicher, dass du deine Passw\u00F6rter nicht mit der Google Chrome Cloud synchronisierst.",
+          "DueDate": {
+            "Id": 30,
+            "DefaultValue": "Am ersten Arbeitstag",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "referenceperson",
+          "TaskResponsibleName": null,
+          "Departments": [],
+          "ContractTypes": []
+        },
+        {
+          "Id": 21,
+          "Title": "Anmeldedaten einrichten | Rest",
+          "Description": "- Erstelle einen neuen Basic-Auth-Passwort-Hash und schicke ihn per E-Mail an ops@makandra.de.\r\n- Sende diesen Passwort-Hash an ops@makandra.de und bitte darum, in die allgemeine Basisauthentizierung von makandra aufgenommen zu werden.",
+          "DueDate": {
+            "Id": 31,
+            "DefaultValue": "Am ersten Arbeitstag",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "referenceperson",
+          "TaskResponsibleName": null,
+          "Departments": [],
+          "ContractTypes": [
+            "Festanstellung"
+          ]
+        },
+        {
+          "Id": 22,
+          "Title": "Erste Schritte mit Gitlab",
+          "Description": "- Ops hat einen Gitlab-Benutzer f\u00FCr dich erstellt. Du solltest eine E-Mail mit einem tempor\u00E4ren Passwort erhalten haben.\r\n- F\u00FCge deinen SSH-Schl\u00FCssel in dein GitLab-Profil ein.\r\n- Du darfst dein privates Smartphone f\u00FCr die erforderliche Zwei-Faktoren-Authentifizierung\r\nverwenden.\r\n- Richte eine vern\u00FCnftige git-config ein.",
+          "DueDate": {
+            "Id": 32,
+            "DefaultValue": "Am ersten Arbeitstag",
+            "Counter": 0,
+            "TimeUnit": "days",
+            "IsBefore": false,
+            "Title": null
+          },
+          "TaskResponsibleType": "referenceperson",
+          "TaskResponsibleName": null,
+          "Departments": [
+            "Operations",
+            "Entwicklung"
+          ],
+          "ContractTypes": []
+        }
+      ],
+      "AuthorizedRoles": [
+        "Personal",
+        "Gesch\u00E4ftsleitung"
+      ],
+      "TaskCount": 22
+    }
+  ],
+  "roles": [
+    {
+      "Title": "Administrator",
+      "Description": "Die Rolle des Admins umfasst die uneingeschränkte Verwaltung und Bearbeitung aller Daten in der Anwendung. Admins sind für das Anlegen, Bearbeiten und Löschen von Prozessen zuständig und haben umfassende Zugriffsrechte."
+    },
+    {
+      "Title": "IT",
+      "Description": "Die IT-Rolle ist verantwortlich für technische Aufgaben, wie die Einrichtung und Wartung von IT-Systemen und -Software. IT-Mitarbeiter unterstützen andere Abteilungen durch die Bereitstellung und Verwaltung der benötigten technischen Infrastruktur."
+    },
+    {
+      "Title": "Backoffice",
+      "Description": "Die Backoffice-Rolle umfasst administrative und unterstützende Tätigkeiten, die im Hintergrund ablaufen, um den reibungslosen Betrieb der Organisation zu gewährleisten. Dies beinhaltet Aufgaben wie Buchhaltung, Datenverwaltung und organisatorische Unterstützung."
+    },
+    {
+      "Title": "Gesch\u00E4ftsleitung",
+      "Description": "Die Geschäftsleitung ist für die strategische Planung und Entscheidungsfindung auf höchster Ebene verantwortlich. Diese Rolle umfasst die Führung des Unternehmens, die Festlegung von Zielen und die Überwachung der Umsetzung strategischer Pläne."
+    },
+    {
+      "Title": "Personal",
+      "Description": "Die Personal-Rolle, auch bekannt als People & Culture, ist für alle Aspekte des Personalmanagements zuständig. Dies umfasst die Einstellung neuer Mitarbeiter, das Onboarding, die Mitarbeiterentwicklung und die Verwaltung von Personalprozessen wie Beförderungen und Entfristungen."
+    }
+  ],
+  "user": [
+    {
+      "user": {
+        "FirstName": "Admin",
+        "LastName": "",
+        "TasksFinished": 0,
+        "Departments": [""],
+        "Roles": ["Administrator"],
+        "Email": "admin@replay.de"
+      },
+      "Password": "Admin1!",
+      "IsLocked": false
+    },
+    {
+      "user": {
+        "FirstName": "K\u00F6nig",
+        "LastName": "v. Augsburg",
+        "TasksFinished": 0,
+        "Departments": [""],
+        "Roles": ["Administrator"],
+        "Email": "koenig@replay.de"
+      },
+      "Password": "GHLutz13!",
+      "IsLocked": false
+    },
+    {
+      "user": {
+        "FirstName": "Gerhard",
+        "LastName": "",
+        "TasksFinished": 0,
+        "Departments": ["Backoffice"],
+        "Roles": ["Backoffice"],
+        "Email": "gerhard@replay.de"
+      },
+      "Password": "Gerhard1!",
+      "IsLocked": false
+    },
+    {
+      "user": {
+        "FirstName": "Bill",
+        "LastName": "Yard",
+        "TasksFinished": 0,
+        "Departments": [""],
+        "Roles": ["Personal", "Backoffice"],
+        "Email": "bill@replay.de"
+      },
+      "Password": "B1llard!",
+      "IsLocked": false
+    },
+    {
+      "user": {
+        "FirstName": "Karl",
+        "LastName": "Toffel",
+        "TasksFinished": 0,
+        "Departments": ["Operations"],
+        "Roles": ["IT"],
+        "Email": "karl@replay.de"
+      },
+      "Password": "Erdapfel1!",
+      "IsLocked": false
+    },
+    {
+      "user": {
+        "FirstName": "Wilma",
+        "LastName": "Ruhe",
+        "TasksFinished": 0,
+        "Departments": [""],
+        "Roles": [""],
+        "Email": "wilma@replay.de"
+      },
+      "Password": "Pssssst1!",
+      "IsLocked": false
+    }
+  ]
+}

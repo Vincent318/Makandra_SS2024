@@ -1,0 +1,82 @@
+@using Microsoft.AspNetCore.Identity
+@using Replay.Services
+@using Replay.Enumerations
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+@inject RoleManager<Role> RoleManager
+
+@{
+    ViewBag.Title = "Create User";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Adjust the layout path if needed
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/users.css" asp-append-version="true" />
+</head>
+<div class="form-container">
+    <h2>Benutzer anlegen</h2>
+    <form action="/Users/CreateUser" method="post">
+
+         <div class="row">
+            <div class="column">
+                <label for="firstname">Vorname</label>
+                <input type="text" id="firstname" name="Firstname" placeholder="Vorname eingeben"  >
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <label for="lastname">Nachname</label>
+                <input type="text" id="lastname" name="Lastname" placeholder="Nachname eingeben" >
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="Email" placeholder="Email Adresse eingeben" required>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="column" id="department-container">
+                <label>Abteilungen</label>
+                @foreach (Department department in Enum.GetValues(typeof(Department)))
+                {
+                    <span class="select-btn-dptm">@EnumMapperService.GetDepartmentName(department)</span>
+                }
+            </div>
+        </div>
+       <div class="row">
+            <div class="column" id="role-container">
+                <label>Rollen</label>
+                @foreach (Role role in RoleManager.Roles)
+                {
+                    <span class="select-btn-role">@role.Title</span>
+                }
+            </div>
+        </div>
+        
+
+        <div class="column">
+            <label for="locked">Sperren</label>
+            <div class="clickable-field" id="lock-toggle" onclick="toggleCheck(this)"></div>
+        </div>
+        <div id="additional-data">
+
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <div class="button-container">
+                    <a href="@Url.Action("Index", "Users")" class="back-button">Zurück</a>
+                    <input type="submit" value="Speichern"  onclick="validateLists()">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+    
+<script src="~/js/users.js" asp-append-version="true"></script>
+

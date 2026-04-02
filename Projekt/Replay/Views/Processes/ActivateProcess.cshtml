@@ -1,0 +1,359 @@
+@using Replay.ViewModels.ProcessViewModels
+@using Replay.Enumerations
+@using Replay.Services
+@model ActivateProcessViewModel
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prozess Starten</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            @* Das verzieht die Navbar *@
+            @* padding: 20px; *@
+            background-color: #fff;
+            user-select: none;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            
+            background-color: #f5f5f5;
+
+            @* ich glaube wir wollten das eckig machen also ohne abrundungen *@
+            @* border-radius: 0px; *@
+
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            @* ich denke lieber nicht auf die volle breite der seite 100 -> 50*@
+            width: 50%;
+
+            box-sizing: border-box;
+            
+            @* margin-top: 25px;
+            margin-left:350px; *@
+
+            margin: 0 auto;
+
+            @* das verzieht die navbar *@
+            @* position: relative; *@
+        }
+
+        .container label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            display: block;
+            margin-right: 10px;
+            @* text-align: center; *@
+        }
+
+         @* .container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        } *@
+        
+        .select-dropdown{
+            width: 85%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .select-duedate{
+            width: 30%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .row {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .row-duedate {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+
+        .column {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+       
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+
+            @* eckige ränder *@
+            border-radius: 0px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 0px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+        } 
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        .roles-container {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .role-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            
+        }
+
+        .role-item input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 0px;
+        }
+
+        .role-item button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 0px;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 5px;
+            
+        }
+
+        .role-item button:hover {
+            background-color: darkred;
+        }
+
+        .add-role-btn {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 0px;
+            cursor: pointer;
+            
+        }
+
+        .add-role-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .save-btn {
+            @* position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #808080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0px;
+            cursor: pointer;
+            font-weight: bold; *@
+
+            padding: 10px 20px;
+            border: none;
+            background-color: #575556;
+            color: white;
+            cursor: pointer;
+            border-radius: 0px;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .save-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .container close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .role-button {
+            background-color: #d3d3d3;
+            color: black;
+            border: none;
+            border-radius: 0px;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .role-button:hover{
+             background-color: #4CAF50;
+        }
+
+        .role-button.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+
+        .button-container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #575556;
+            color: white;
+            cursor: pointer;
+            border-radius: 0px;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+
+    </style>
+</head>
+    <div class="wrapper">
+    <div class="container">
+        <h1>Prozess Starten</h1>
+
+        <form id="processForm" method="post" asp-action="ActivateProcess">
+            
+            
+                <label for="title">Titel</label>
+                @{
+                    var defaultValue = Model.Process?.Title ?? "";
+                }
+                <input type="text" id="title" name="Title" placeholder="Prozessname eingeben" value="@defaultValue">
+                <span asp-validation-for="Process.Title" class="validation-text"></span>
+                
+
+                <label for="description">BESCHREIBUNG</label>
+                @{
+                    var descriptionValue = Model.Process?.Description ?? "";
+                }
+                <textarea id="description" name="Description" rows="4" placeholder="Beschreibung eingeben" >@descriptionValue</textarea>
+
+                <div class = "row-duedate">
+
+                    <label for="targetDate">Zieldatum</label>
+                    <input type="date" id="targetDate" name="TargetDateString" value="@Model.TargetDate.ToString("yyyy-MM-dd")" class = "select-duedate"/>
+                
+                </div>
+
+                <div class = "row">
+                    <div class = "column">
+                        <label>Vorgangsverantwortliche(r)</label>
+                        <select name="PersonInChargeEmail" class = "select-dropdown">
+                            <option disabled selected>Benutzer Wählen</option>
+                            @foreach (var user in Model.Users)
+                            {   
+                                if (Model.CurrentUserEmail == user.Email) {
+                                    <option value="@user.Email" selected>@user.GetName()</option>
+                                } else {
+                                    <option value="@user.Email">@user.GetName()</option>
+
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div class = "column">
+                        <label>Bezugsperson</label>
+                        <select name="ReferencePersonEmail" class = "select-dropdown">
+                            <option disabled selected>Benutzer Wählen</option>
+                            @foreach (var user in Model.Users)
+                            {
+                                <option value="@user.Email">@user.GetName()</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div class = "row">
+                    <div class = "column">
+                        <label>Vertragstyp</label>
+                        <select name="ContractType" class = "select-dropdown">
+                            <option disabled selected>Vertragstyp</option>
+                            @foreach (ContractType contractType in Enum.GetValues(typeof(ContractType)))
+                            {
+                                <option class="rounded-box select-btn-cts">@EnumMapperService.GetContractType(contractType)</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class = "column">
+                        <label>Abteilung</label>
+                        <select name="Department" class = "select-dropdown">
+                            <option disabled selected>Abteilung</option>
+                            @foreach (Department department in Enum.GetValues(typeof(Department)))
+                            {
+                                <option class="rounded-box select-btn-cts">@EnumMapperService.GetDepartmentName(department)</option>
+                            }
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <input type="hidden" name="ProcessId" value="@Model.Process?.Id">
+                <input type="hidden" name="Users" value="@Model.Users">
+                <input type="hidden" name="Archived" value="False">
+
+
+
+            <div class = "row">
+                <div class = "column">
+                    <div class="button-container">
+                        <a href="@Url.Action("Index", "Processes")" class="back-button">Zurück</a>
+                        <button type="submit" class="save-btn">Speichern</button>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </form>
+        
+    </div>
+</div>

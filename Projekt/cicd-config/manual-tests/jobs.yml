@@ -1,0 +1,63 @@
+unitTests_manual:
+  tags:
+  - sopro
+  stage: unitTests
+  image: mcr.microsoft.com/dotnet/sdk:6.0-focal
+  when: manual
+  script:
+    - |
+      cd Projekt
+      dotnet test --filter FullyQualifiedName~Replay.Tests.UnitTests
+
+frontendTests_manual:
+  tags:
+  - sopro
+  stage: frontendTests
+  image: mcr.microsoft.com/dotnet/sdk:6.0-focal
+  when: manual
+  before_script:
+    - chmod +x Projekt/cicd-config/install_chrome.sh
+    - Projekt/cicd-config/install_chrome.sh
+  script:
+    - |
+      ROOT_DIR=$PWD
+      POJECT_DIR="${ROOT_DIR}/Projekt"
+      cd Projekt/Replay
+      dotnet restore
+      dotnet tool install --global dotnet-ef --version 7.0.5
+      PATH="$PATH:/root/.dotnet/tools"
+      dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.5
+      dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 7.0.5
+      dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.5
+      dotnet ef database update
+      dotnet publish -c Release -o app/publish /p:UseAppHost=false
+      dotnet app/publish/Replay.dll &
+      until curl  --silent --head --fail http://localhost:5000; do
+          echo "Waiting for the application to start..."
+          sleep 1
+      done
+      echo "Application is up and running!"
+      cd ./../
+      dotnet test --filter FullyQualifiedName~Replay.Tests.FrontendTests
+
+deploy_manual:
+  tags:
+  - sopro
+  variables:
+    KANIKO_ARGS: "--single-snapshot"
+    KANIKO_BUILD_CONTEXT: $CI_PROJECT_DIR
+    IMAGE_TAG_NAME: dev
+  stage: deploy
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  when: manual
+  script:
+    - export IMAGE_TAG=${CI_REGISTRY_IMAGE}/replay:${IMAGE_TAG_NAME}
+    - echo $IMAGE_TAG
+    - mkdir -p /kaniko/.docker
+    # Write credentials to access Gitlab Container Registry within the runner/ci
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n ${CI_REGISTRY_USER}:${CI_REGISTRY_PASSWORD} | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
+    # Build and push the container. To disable push add --no-push
+    - DOCKERFILE_PATH=${DOCKERFILE_PATH:-"$KANIKO_BUILD_CONTEXT/Projekt/Replay/Dockerfile"}
+    - /kaniko/executor --context $KANIKO_BUILD_CONTEXT --dockerfile $DOCKERFILE_PATH --destination $IMAGE_TAG $KANIKO_ARGS

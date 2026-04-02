@@ -1,0 +1,100 @@
+# @author Daniel Feustel
+stages:
+  - unitTests
+  - frontendTests
+  - deploy
+
+
+unitTests:
+  tags:
+  - sopro
+  stage: unitTests
+  image: mcr.microsoft.com/dotnet/sdk:6.0-focal
+  extends:
+    - .mr-rule
+    - .feature-branch-rule
+  allow_failure: false
+  script:
+    - |
+      cd Projekt
+      dotnet test --filter FullyQualifiedName~Replay.Tests.UnitTests
+
+frontendTests:
+  tags:
+  - sopro
+  stage: frontendTests
+  image: mcr.microsoft.com/dotnet/sdk:6.0-focal
+  extends: 
+    - .mr-rule
+    - .feature-branch-rule
+  before_script:
+    - chmod +x Projekt/cicd-config/install_chrome.sh
+    - Projekt/cicd-config/install_chrome.sh
+  needs:
+    - unitTests
+  allow_failure: false
+  script:
+    - |
+      ROOT_DIR=$PWD
+      POJECT_DIR="${ROOT_DIR}/Projekt"
+      cd Projekt/Replay
+      mkdir persistence
+      dotnet restore
+      dotnet tool install --global dotnet-ef --version 7.0.5
+      export PATH="$PATH:/root/.dotnet/tools"
+      dotnet add package Microsoft.EntityFrameworkCore.Design --version 7.0.5
+      dotnet add package Microsoft.EntityFrameworkCore.Sqlite --version 7.0.5
+      dotnet add package Microsoft.EntityFrameworkCore.Tools --version 7.0.5
+
+      rm -rf Migrations
+      rm -rf persistence/*
+
+      dotnet ef migrations add Initial --context ApplicationDbContext
+      dotnet ef migrations add Initial --context OperationDBContext
+      dotnet ef migrations add Initial --context ProcessDBContext
+      dotnet ef migrations add Initial --context SecurityDbContext
+      
+
+      dotnet ef database update --context ApplicationDbContext
+      dotnet ef database update --context OperationDBContext
+      dotnet ef database update --context ProcessDBContext
+      dotnet ef database update --context SecurityDbContext
+      
+      
+      export ASPNETCORE_ENVIRONMENT=Development
+      dotnet publish -c Release -o app/publish /p:UseAppHost=false
+      dotnet app/publish/Replay.dll &
+      until curl  --silent --head --fail http://localhost:6969; do
+          echo "Waiting for the application to start..."
+          sleep 1
+      done
+      echo "Application is up and running!"
+      cd ./../
+      cd Replay.Tests
+      dotnet add package Selenium.WebDriver
+      dotnet add package Selenium.WebDriver.ChromeDriver
+      dotnet add package Microsoft.AspNetCore.Mvc.Testing --version 6
+      cd ./../
+      dotnet test --filter FullyQualifiedName~Replay.Tests.FrontendTests
+
+deploy:
+  tags:
+  - sopro
+  variables:
+    KANIKO_ARGS: "--single-snapshot"
+    KANIKO_BUILD_CONTEXT: $CI_PROJECT_DIR
+    IMAGE_TAG_NAME: dev
+  stage: deploy
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  extends:
+    - .deploy-rule
+  allow_failure: false
+  script:
+    - export IMAGE_TAG=${CI_REGISTRY_IMAGE}/replay:${IMAGE_TAG_NAME}
+    - echo $IMAGE_TAG
+    - mkdir -p /kaniko/.docker
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n ${CI_REGISTRY_USER}:${CI_REGISTRY_PASSWORD} | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
+    - DOCKERFILE_PATH=${DOCKERFILE_PATH:-"$KANIKO_BUILD_CONTEXT/Projekt/Replay/Dockerfile.portainer"}
+    - /kaniko/executor --context $KANIKO_BUILD_CONTEXT --dockerfile $DOCKERFILE_PATH --destination $IMAGE_TAG $KANIKO_ARGS

@@ -1,0 +1,64 @@
+@model Replay.ViewModels.AccountViewModel
+
+@{
+    ViewData["Title"] = "Account";
+}
+
+
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/account.css" asp-append-version="true" />
+    </head>
+        <div class="account-wrapper">
+        
+            <div class="account-container">
+                <div class="container-header">
+                    <h1>Mein Profil</h1>
+                </div>
+                
+                <div class="account-data-container">
+                    <label>Name</label>
+                    <p>@Model.FirstName @Model.LastName</p>
+                </div>
+                <div class="account-data-container">
+                    <label>E-Mail</label>
+                    <p>@Model.Email</p>
+                </div>
+                <div class="account-data-container">
+                    <label>Rollen</label>
+                    <div class="multiple-account-data-container">
+                        @if (Model.Roles != null) {
+                            @foreach (var role in Model.Roles)
+                            {   
+                                <p>@role</p>
+                            }
+                        }
+                        
+                    </div>
+                    
+                </div>
+                <div class="account-data-container">
+                    <label>Abteilungen</label>
+                    <div class="multiple-account-data-container">
+                        @if (Model.Departments != null) {
+                            @foreach (var dep in Model.Departments)
+                            {
+                                <p>@dep</p> 
+                            } 
+                        }
+                         
+                   
+                    </div>
+                </div>
+                <form asp-action="Logout" method="post">
+                    <div class="account-data-container">
+                        <button class="log-out-btn" type="submit">Abmelden</button>
+                    </div>
+                </form>
+            </div>
+    </div>
+    
+    
+    
+    
+</html>

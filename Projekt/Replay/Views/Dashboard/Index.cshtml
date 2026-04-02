@@ -1,0 +1,186 @@
+@* @author: Daniel Feustel *@
+@model Replay.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/dashboard.css" asp-append-version="true" />
+    </head>
+    <div class="dashboard-wrapper">
+        <h2 class="dashboard-header">Replay <br> - <br> Unsere Prozesse im Überblick</h2>
+        <div class="dashboard-content-container">
+            
+            <div class="content-container">
+                <h2 class="container-header">Meine Übersicht</h2>
+                <div class="overview-container">                
+                <div class="chart-wrapper">
+                    <canvas id="chart" ></canvas>
+                </div>
+                <div>
+                    
+                </div>
+                @if (Model.IsAdmin) {
+                    <div class="chart-wrapper">
+                    <canvas id="chart-admin"></canvas>
+                </div>
+                } else {
+                    <div>
+                        
+                    </div>
+                }
+                
+            </div>
+            </div>
+           
+
+         <div class="content-container">
+           
+                <h2 class="container-header" >FAQ</h2>
+                <div class="faq-part">
+                    <h4 class="faq-btn">Wofür verwenden wir Replay? <img class="dashboard-down" src="~/public/down-arrow.png" alt="" style="position: absolute; top: 15px; right: 7px; height: 15px;"></h4>
+                    <div class="expand-faq">
+                        <p>Replay soll helfen, um Personalprozesse zu moderieren und die Kommunikation der beteiligten Personen zu unterstützen.
+                                Hauptfokus können komplexe Onboarding-Prozesse neuer Mitarbeiter sein, wobei auch andere Personalprozesse wie Offboarding, Beförderung oder Entfristung unterstützt werden.
+                                Das Tool verschafft People & Culture stets einen aktuellen Überblick über den Fortschritt dieser Prozesse.</p>
+                    </div>
+                </div>
+                <div class="faq-part">
+                    <h4 class="faq-btn">Aufgaben <img class="dashboard-down" src="~/public/down-arrow.png" alt="" style="position: absolute; top: 15px; right: 7px; height: 15px;"></h4>
+                    <div class="expand-faq">
+                        <p>Aufgaben sind spezifische Schritte innerhalb eines Prozesses, die erledigt werden müssen.
+                                Aufgaben können Anleitungen enthalten und sind bestimmten Rollen oder Abteilungen zugewiesen. Sie haben Fristen und Zuständige, die sie als "erledigt" oder "in Bearbeitung" markieren können.</p>
+                    </div>
+                </div>
+                <div class="faq-part">
+                    <h4 class="faq-btn">Prozesse <img class="dashboard-down" src="~/public/down-arrow.png" alt="" style="position: absolute; top: 15px; right: 7px; height: 15px;" ></h4>
+                    <div class="expand-faq">
+                        <p>Prozesse sind Blaupausen für wiederholbare Vorgänge, wie z. B. Onboarding oder Offboarding.
+                                Sie bestehen aus mehreren Aufgaben und definieren die Abfolge und Zuständigkeiten der einzelnen Schritte.
+                                Prozesse können von Administratoren angelegt, bearbeitet und gelöscht werden und steuern, welche Rollen Zugriff auf sie haben.</p>
+                    </div>
+                </div>
+                <div class="faq-part">
+                    <h4 class="faq-btn">Vorgänge <img class="dashboard-down" src="~/public/down-arrow.png" alt="" style="position: absolute; top: 15px; right: 7px; height: 15px;"></h4>
+                    <div class="expand-faq">
+                        <p>Vorgänge sind Instanzen von Prozessen, die zur Abarbeitung gestartet werden.
+                                Sie umfassen die spezifischen Merkmale des jeweiligen Prozesses, wie den Prozessverantwortlichen, die Bezugsperson, den Vertragstyp und das Zieldatum.
+                                Vorgänge erzeugen automatisch die zugehörigen Aufgaben und können von benannten Rollen oder Personen verwaltet werden.</p>
+                    </div>
+                </div>
+                <div class="faq-part">
+                    <h4 class="faq-btn">Rollen <img class="dashboard-down" src="~/public/down-arrow.png" alt="" style="position: absolute; top: 15px; right: 7px; height: 15px;"></h4>
+                    <div class="expand-faq">
+                        <p>Rollen bestimmen die Zugriffsrechte und Zuständigkeiten innerhalb der Anwendung. Benutzer können mehrere Rollen innehaben, die ihnen Zugriff auf bestimmte Prozesse und Aufgaben gewähren.
+                                Standardrollen sind z. B. "Administratoren", "IT", "Backoffice", "Geschäftsleitung" und "Personal".
+                                Rollen steuern, wer welche Aufgaben innerhalb eines Prozesses durchführen darf.</p>
+                    </div>
+                </div>
+
+          
+            </div>
+           
+
+
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/dashboard.js" asp-append-version="true"></script>
+    
+    <script>
+        const ctx = document.getElementById('chart');
+        const adminCtx = document.getElementById('chart-admin');
+       
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+            labels: ['Offen', 'In bearbeitung', 'Erledigt'],
+            datasets: [{
+                label: 'Aufgaben',
+                backgroundColor: [
+                    '#e61d47',
+                    '#FFB199',
+                    'rgb(153, 255, 204)'
+                ],
+                data: [@Model.TasksOpen, @Model.TasksInProgress, @Model.TasksDone],
+                borderWidth: 1
+            
+            }]
+            },
+            options: {
+                plugins: {title: {display: true, text: "Meine Aufgaben"}},
+                scales: {
+                    x: {
+                        display: false,
+                        border: {
+                        display: false
+                        },
+                        grid: {
+                        display: false,
+                        drawOnChartArea: false,
+                        drawTicks: false,
+                        },
+                        axis: {displa: false}
+                    },
+                    y: {
+                        display: false,
+                        border: {
+                        display: true
+                        },
+                        grid: {
+                        display: false,
+                        drawOnChartArea: false,
+                        drawTicks: false,
+                        }
+                    }
+                }
+                }
+            });
+
+            new Chart(adminCtx, {
+            type: 'bar',
+            data: {
+            labels: ['Vorgänge'],
+            datasets: [{
+                label: 'Aktive Vorgänge',
+                backgroundColor: [
+                    'rgb(153, 255, 204)'
+                ],
+                data: [@Model.OperationsActive],
+                borderWidth: 1
+            }]
+            },
+            options: {
+                plugins: {title: {display: true, text: "Prozesse"}},
+                scales: {
+                    x: {
+                        display: false,
+                        border: {
+                        display: false
+                        },
+                        grid: {
+                        display: false,
+                        drawOnChartArea: false,
+                        drawTicks: false,
+                        },
+                        axis: {displa: false}
+                    },
+                    y: {
+                        display: false,
+                        border: {
+                        display: true
+                        },
+                        grid: {
+                        display: false,
+                        drawOnChartArea: false,
+                        drawTicks: false,
+                        }
+                    }
+                }
+                }
+            });
+    </script>
+
+</html>

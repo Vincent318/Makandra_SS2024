@@ -1,0 +1,252 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.view-title {
+    font-weight: bold;
+    font-family: 'League Spartan', sans-serif;
+    margin-left: 30px;
+    font-size: 3em;
+}
+
+.view-title-container {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'League Spartan', sans-serif;
+    align-items: center;
+    margin-right: 70px;
+    margin-bottom: 20px;
+}
+
+.add-role {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    margin-right: 40px;
+    color: black;
+    text-decoration: none;
+}
+
+.search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+
+.role-list {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.role-list-wrapper {
+    padding: 20px;
+}
+
+.delete-role {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #080808;
+    margin-right: 20px;
+}
+
+ .delete-role:hover{
+    background-color: #c9302c; /* Hover-Farbe */
+}
+
+.edit-role {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #080808; 
+    margin-right: 20px;
+}
+
+ .edit-role:hover img{
+    background-color: #c9302c; /* Hover-Farbe */
+}
+
+.role-list-wrapper {
+    padding: 20px;
+}
+
+.role-list-header {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.role-list-table {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.role-list-table th {
+    padding: 10px;
+    text-align: left;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    font-size: 15pt;
+}
+
+.role-list-table td {
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+    padding: 10px;
+    text-align: left;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.role-list-table thead {
+    background: linear-gradient(90deg, #FF0844 0%, #FFB199 100%);
+    color: white;
+}
+
+.description-container {
+    max-width: 500px;
+    position: relative;
+}
+
+.title-container {
+    max-width: 500px;
+    position: relative;
+}
+
+.description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    max-width: 100%;
+}
+
+.expand-link {
+    cursor: pointer;
+    color: rgb(7, 7, 8);
+    margin-left: 25px;
+    width: 28px; 
+    height: 28px ; 
+    vertical-align: middle;
+    display:flex;
+    
+}
+
+.expand-link:hover {
+    color: rgb(10, 10, 11);
+}
+
+.role-details {
+    display: none;
+}
+
+.expanded .role-details {
+    display: block;
+}
+
+.expanded .description {
+    display: none;
+}
+
+.expanded .expand-link i {
+    transform: rotate(180deg);
+}
+
+.role-expand-icon{
+    width: 28px; 
+    height: 28px ; 
+    pointer-events: none; 
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.button-container {
+    display: flex; 
+    justify-content: flex-end;
+    margin-right: 100px;
+}
+
+
+.form-container {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    border-radius: 0px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-container input[type=text],
+.form-container textarea {
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    font-size: 1em;
+}
+
+.form-container .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-container input[type=submit] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #575556;
+    color: white;
+    cursor: pointer;
+    border-radius: 0px;
+    font-size: 1em;
+}
+
+.form-container input[type=submit]:hover {
+    background-color: #0056b3;
+}
+
+.back-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #575556;
+    color: white;
+    cursor: pointer;
+    border-radius: 0px;
+    font-size: 1em;
+    text-decoration : none;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+.Update {
+        margin-right: 30px;
+        margin-left: 30px;
+}

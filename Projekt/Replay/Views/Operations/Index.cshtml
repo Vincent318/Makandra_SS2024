@@ -1,0 +1,313 @@
+@* @author: Raphael Huber *@
+
+@using Replay.Enumerations
+@model Replay.ViewModels.OperationViewModel 
+
+@{
+    ViewBag.Title = "VORGÄNGE";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="~/css/operation.css" />
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
+    <div class="operations-wrapper">
+        <div class="header-container">
+            <h1 class="operations-header">VORGÄNGE</h1>
+            <div style="padding-left:55%">
+                <select class="operation-select" id="operationSelect" style="margin:10px">
+                    @switch(@Model.SelectedViewOption)
+                    {
+                        case 1:
+                            <option value="1">Alle</option>
+                            <option value="2">Aktiv</option>
+                            <option value="3">Archiviert</option>
+                            break;
+                        case 2:
+                            <option value="2">Aktiv</option>
+                            <option value="1">Alle</option>
+                            <option value="3">Archiviert</option>
+                            break;
+                        case 3:
+                            <option value="3">Archiviert</option>
+                            <option value="1">Alle</option>
+                            <option value="2">Aktiv</option>
+                            break;
+                    }
+
+                    
+                </select>
+            </div>
+        </div>
+
+        <table class="operations-table">
+            <thead>
+                <tr>
+                    <th style="width: 15%;">TITEL</th>
+                    <th style="width: 15%;">VERTRAGSTYP</th>
+                    <th style="width: 15%;">ABTEILUNG</th>
+                    <th style="width: 15%;">VERANTWORTLICHER</th>
+                    <th style="width: 15%;">BEZUGSPERSON</th>          
+                    <th style="width: 15%;">FORTSCHRITT</th>
+                    <th style="width: 10%;">ARCHIVIEREN</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null || Model.Operations == null)
+                {
+                    <tr><td colspan="7">Noch keinen Vorgang eingefügt</td></tr>
+                }
+                else
+                {
+                    @for (int i = 0; i < @Model.Operations.Count; i++)
+                    {
+                        <tr>
+                            <td class="parent" data-child="h_table_@($"{i}")" style="cursor: pointer;">
+                                <div class="onboarding-container">
+                                    @Model.Operations[i].Title
+                                    <img src="~/public/down-arrow.png" alt="Down Icon">
+                                </div>
+                            
+                            <td class="parent" data-child="h_table_@($"{i}")" style="cursor: pointer;">
+                                <div>@Model.Operations[i].ContractTypeString</div>
+                            </td>
+                            <td class="parent" data-child="h_table_@($"{i}")" style="cursor: pointer;">
+                                <div>@Model.Operations[i].DepartmentString</div>
+                            </td>
+                            <td class="parent" data-child="h_table_@($"{i}")" style="cursor: pointer;">
+                                 @{
+                                    var personInCharge = Model.Operations[i].PersonInCharge;
+                                    var personInChargeName = personInCharge != null ? personInCharge.GetName() : "Unbekannter Benutzer";
+                                }
+                                @personInChargeName
+                            </td>
+                            <td class="parent" data-child="h_table_@($"{i}")" style="cursor: pointer;">
+                                @{
+                                    var referencePerson = Model.Operations[i].ReferencePerson;
+                                    var referencePersonName = referencePerson != null ? referencePerson.GetName() : "Unbekannter Benutzer";
+                                }
+                                @referencePersonName
+                            </td>
+                            <td class="parent" data-child="h_table_@($"{i}")" style="cursor: pointer;">
+                                @{
+                                    var finished_tasks = 0;
+                                    var all_tasks = 0;
+                                    int progressWidth = 100;
+
+                                    @if (Model.Operations[i].Tasks != null && Model.Operations[i].Tasks.Count != 0)
+                                    {
+                                        finished_tasks = @Model.Operations[i].Tasks.Count(t => @Replay.Services.EnumMapperService.GetTaskStatus(t.StatusString) == @Replay.Enumerations.TaskStatus.BEARBEITET);
+                                        all_tasks = @Model.Operations[i].Tasks.Count();
+                                        progressWidth = (int)(((float)finished_tasks / (float)all_tasks) * 100);
+                                    }
+                                }
+                                
+                                @if (finished_tasks == all_tasks) {
+                                    <div style="color: #01a327">erledigt</div>
+                                } else {
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: @($"{progressWidth}")%;">
+                                            <span class="progress-label"></span>
+                                        </div>
+                                    </div>
+                                    <div>@finished_tasks / @all_tasks</div>
+                                }
+                                        
+                                
+                            </td>
+                            <td>
+                                @if (Model.Operations[i].Archived) {
+                                    <div>bereits archiviert</div>
+                                } else {
+                                    @if (Model.Operations[i].PersonInCharge == @Model.CurrentUser as @Replay.Models.User || (@Model.CurrentUser as @Replay.Models.User).Roles.Contains("Administrator")) {
+                                        <form asp-action="ArchiveOperation" method="post" style="display:inline;" onsubmit="return confirm('Sind Sie sicher, dass Sie diesen Vorgang archivieren wollen?');">
+                                        <input type="hidden" name="id" value="@Model.Operations[i].Id"/>
+                                                                               
+                                        <div class="archive-img" style="text-align: center">
+                                            <button><img src="~/public/archive.png" alt="Archive Icon"></button>
+                                        </div>
+                                        </form>
+                                    } else {
+                                        <div>-</div>
+                                    }
+                                    
+                                }
+                                
+                            </td>
+                        </tr>
+
+                        <tr class="child h_table_@($"{i}") hidden">
+                            <td colspan="7">
+                                <div style="padding-bottom: 30px; text-align: left;">
+                                    Zieldatum des Vorgangs: @Model.Operations[i].TargetDate
+                                </div>
+                                <div style="padding-bottom: 30px; text-align: left;">
+                                    @Model.Operations[i].Description
+                                </div>
+                                <div>
+                                    Aufgaben:
+                                </div>
+                                <table style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 25%;">Titel</th>
+                                            <th style="width: 25%">Zuständiger</th>
+                                            <th style="width: 25%;">Frist</th>
+                                            <th style="width: 25%;">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @if (Model.Operations[i].Tasks != null)
+                                        {
+                                            @foreach (var task in Model.Operations[i].Tasks)
+                                            {
+                                                <tr>
+                                                <td>@task.Title</td>
+                                                @if (!Model.Operations[i].Archived 
+                                                        &&(@Replay.Services.EnumMapperService.GetTaskStatus(@task.StatusString) != @Replay.Enumerations.TaskStatus.BEARBEITET)
+                                                        &&((Model.Operations[i].PersonInCharge == @Model.CurrentUser as @Replay.Models.User) 
+                                                        || (@Model.CurrentUser as @Replay.Models.User).Roles.Contains("Administrator")
+                                                        || ((@task.ResponsibleTaskOwnerType == "role") && (@Model.CurrentUser as @Replay.Models.User).Roles.Contains(@task.ResponsibleTaskOwnerName))
+                                                        || ((@task.ResponsibleTaskOwnerType == "user" && (@Model.CurrentUser as @Replay.Models.User).Email == @task.ResponsibleTaskOwnerName)))
+                                                    ) {
+                                                        <td>
+                                                        <form asp-action="ChangeResponsibleTaskOwner" method="post" style="display:flex;" onsubmit="return confirm('Sind Sie sicher, dass Sie den Aufgabenverantwortlichen ändern wollen?');">
+                                                        <input type="hidden" name="opId" value="@Model.Operations[i].Id"/>
+                                                        <input type="hidden" name="taskId" value="@task.Id"/>
+                                                            <div>
+                                                            <select name="responibleTaskOwner" class = "new-taskOwner-select">
+                                                            <option selected="selected" value="@task.ResponsibleTaskOwnerName">
+                                                                @{
+                                                                    var user = Model.Users?.Find(u => u.Email == task.ResponsibleTaskOwnerName);
+                                                                    var displayName = user != null ? user.GetName() : "Unbekannter Benutzer";
+                                                                }
+                                                                @if (task.ResponsibleTaskOwnerType == "role")
+                                                                {
+                                                                    @task.ResponsibleTaskOwnerName
+                                                                }
+                                                                else
+                                                                {
+                                                                    @displayName
+                                                                }
+                                                            </option>
+                                                            <option disabled>Benutzer:</option>
+                                                            @if (Model.Users != null)
+                                                            {
+                                                                @foreach (var user in Model.Users)
+                                                                {
+                                                                    <option value="@user.Email|user">@user.GetName()</option>
+                                                                }
+                                                            }
+                                                            <option disabled>Rollen:</option>
+
+                                                            @foreach (var role in Model.Roles)
+                                                            {
+                                                                <option value="@role.Title|role">@role.Title</option>
+                                                            }
+                                                            </select></div>
+
+                                                        
+                                                            <div class="save-img" style="margin-left: 10px;">
+                                                            <button><img src="~/public/save.png" alt="Save Icon"></button>
+                                                            </div>
+                                                        </form>
+                                                        </td>
+                                                } else {
+                                                    @if (@task.ResponsibleTaskOwnerType == "role") {
+                                                        <td>@task.ResponsibleTaskOwnerName</td>
+                                                    } else {
+                                                        var user = @Model.Users.Find(u => u.Email == @task.ResponsibleTaskOwnerName);
+                                                        if (user != null) {
+                                                            <td>@user.GetName()</td>
+                                                        }else{
+                                                            <td>Unbekannter Benutzer</td> 
+                                                        }
+
+                                                        @* <td>@Model.Users.Find(u => u.Email == @task.ResponsibleTaskOwnerName).GetName()</td> *@
+                                                    }
+                                                }
+
+                                                @if (!Model.Operations[i].Archived && (@Replay.Services.EnumMapperService.GetTaskStatus(@task.StatusString) != @Replay.Enumerations.TaskStatus.BEARBEITET) &&
+                                                (Model.Operations[i].PersonInCharge == @Model.CurrentUser as @Replay.Models.User || (@Model.CurrentUser as @Replay.Models.User).Roles.Contains("Administrator"))) {
+                                                    <td>
+                                                        <form asp-action="SaveDate" method="post" style="display:flex; align-items: center;" onsubmit="return confirm('Sind Sie sicher, dass Sie das Datum ändern wollen?');">
+                                                        <input type="hidden" name="opId" value="@Model.Operations[i].Id"/>
+                                                        <input type="hidden" name="taskId" value="@task.Id"/>
+                                                        <div>
+                                                        <input type="date" id="date" name="date" value="@task.TargetDate.ToString("yyyy-MM-dd")" class="select-duedate"/>
+                                                        </div>
+                                                        
+                                                        <div class="save-img" style="margin-left: 10px; text-align: center; height: 100%">
+                                                            <button><img src="~/public/save.png" alt="Save Icon"></button>
+                                                        </div>
+                                                        </form>
+                                                    </td>
+                                                } else {
+                                                    <td>@task.TargetDate.ToString("yyyy-MM-dd")</td>
+                                                }
+
+                                                @switch(@Replay.Services.EnumMapperService.GetTaskStatus(@task.StatusString))
+                                                {   
+                                                    
+                                                    case @Replay.Enumerations.TaskStatus.UNBEARBEITET:
+                                                        <td><div style="color: red">noch nicht bearbeitet</div></td>
+                                                        break;
+                                                    case @Replay.Enumerations.TaskStatus.IN_BEARBEITUNG:
+                                                        <td><div style="color: #fda016">in Bearbeitung</div></td>
+                                                        break;
+                                                    case @Replay.Enumerations.TaskStatus.BEARBEITET:
+                                                        <td><div style="color: #17c941">bearbeitet</div></td>
+                                                        break;
+                                                }
+                                                </tr>
+                                         
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var table = document.querySelectorAll('.operations-table')[0];
+        var parents = table.querySelectorAll('.parent');
+        parents.forEach((p) => {
+            p.addEventListener('click', (el) => {
+                var classname = p.getAttribute("data-child");
+                var children = table.querySelectorAll('.' + classname);
+                children.forEach((c) => {
+                    if (c.className.search("hidden") > -1) {
+                        c.className = c.className.replace("hidden", " ");
+                    } else {
+                        c.className = c.className + ' hidden';
+                    }
+                })
+            })
+        })
+        document.addEventListener("DOMContentLoaded", function() {
+            const selectElement = document.getElementById('operationSelect');
+            // Handle change event
+            selectElement.addEventListener('change', function() {
+                const selectedValue = this.value;
+                // Redirect to a new URL based on the selected value
+                window.location.href = `/Operations/Index?selectedOption=${selectedValue}`;
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

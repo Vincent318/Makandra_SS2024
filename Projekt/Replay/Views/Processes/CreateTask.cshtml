@@ -1,0 +1,499 @@
+@* @author: Vincent Arnold *@
+@using Replay.Services
+@using Replay.ViewModels.ProcessViewModels
+@model CreateTaskViewModel
+@using Replay.Enumerations 
+@{
+    ViewBag.Title = "Neue Aufgabe erstellen";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Passen Sie den Layout-Pfad bei Bedarf an
+}
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neue Aufgabe erstellen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            @* padding: 20px; *@
+            background-color: #fff;
+        }
+        .container {
+            background-color: #e0e0e0;
+            border-radius: 0px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            @* position: relative; *@
+            width: 75%;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .row {
+            display: flex;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .column {
+            flex: 1;
+            padding: 10px;
+            position: relative;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],  input[type="number"], select, textarea, .button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            transition: .3s;
+        }
+        .button-group {
+            display: none; /* Buttons unter dem Titel verstecken */
+        }
+        .action-button {
+            background: none;
+            color: #000;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 0;
+            border: none;
+        }
+        .action-button:hover {
+            text-decoration: none;
+        }
+        .action-button-save {
+            font-weight: bold;
+        }
+        .rounded-box {
+            user-select: none;
+            display: inline-block;
+            background-color: #d0d0d0;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 0px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .selected {
+            background-color: #FFB199;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .custom-select {
+            position: relative;
+            width: 150px; /* Anpassen der Breite je nach Bedarf */
+            margin-bottom: 10px;
+            display: flex;
+        }
+        .custom-select select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 0px;
+            box-sizing: border-box;
+            background-color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .contract-type {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            justify-content: flex-start; /* Vertragstypen links ausrichten */
+        }
+        .contract-type .rounded-box {
+            margin-right: 10px; /* Abstand zwischen den Vertragstypen */
+            margin-bottom: 10px;
+        }
+        .departments {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            justify-content: flex-start; /* Abteilungen rechts ausrichten */
+        }
+        .departments .rounded-box {
+            margin-left: 10px; /* Abstand zwischen den Abteilungen */
+            margin-bottom: 10px;
+        }
+        .save-btn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #575556; /* Graue Hintergrundfarbe */
+            color: white; /* Textfarbe weiß */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 0px;
+            cursor: pointer;
+            @* font-weight: bold; *@
+            text-decoration: none;
+        }
+        .save-btn:hover {
+            background-color: #0056b3; /* Dunkleres Grau bei Hover */
+        }
+
+         .back-button {        
+            border: none;
+            background-color: #575556;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 0px;
+            font-size: 1em;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+
+        .button-container{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .custom-due-date {
+            display: flex;
+            position: relative;
+        }
+        input:focus, textarea:focus {
+            background-color: var(--grey-2);
+            outline: none;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="close-button" onclick="closeDialog()">&times;</button>
+        <h1>NEUE AUFGABE ERSTELLEN</h1>
+        <form method="post" asp-action="CreateTask" onsubmit="validateLists()">
+        <div class="row">
+            <div class="column">
+                <label for="title">Titel</label>
+                <input type="text" id="title" name="Title">
+            </div>
+            <div class="column">
+                <label for="responsible">Aufgabenzuständiger</label>
+                <select id="responsible" name="TaskResponsible">
+                    <option value="responsibleperson" selected>Vorgangsverantwortiche(r)</option>
+                    <option value="referenceperson" >Bezugsperson</option>
+                    <option value="role" >Rolle</option>
+                </select>
+                <span asp-validation-for="TaskResponsible" class="validation-text"></span>
+
+                <div id="roles-container">
+                    @foreach (var role in Model.Roles)
+                    {   
+                        <span class="rounded-box select-btn-roles">@role</span>
+                    }
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="description">Beschreibung</label>
+                <textarea id="description" name="Description" rows="4"></textarea>
+            </div>
+            <div class="column">
+                <label>Abteilungen</label>
+                <div class="departments" id="departments"></div>
+                    @foreach (Department department in Enum.GetValues(typeof(Department)))
+                    {
+                        <span class="rounded-box select-btn-dpts">@EnumMapperService.GetDepartmentName(department)</span>
+                    }
+                </div>
+            
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="dueDate">Fälligkeitsdatum</label>
+                <div class="custom-select">
+                    <select id="dueDate" name="DueDateDefault">
+                        @foreach (DueDateEnum dd in Enum.GetValues(typeof(DueDateEnum)))
+                        {   
+                            if (dd == DueDateEnum.ASAP) {
+                                <option value="@EnumMapperService.GetDueDate(dd)" selected>@EnumMapperService.GetDueDate(dd)</option>
+                            } else {
+                                <option value="@EnumMapperService.GetDueDate(dd)">@EnumMapperService.GetDueDate(dd)</option>
+
+                            }
+                        }
+                        <option value="custom">Custom</option>
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="column">
+                <label>Vertragstyp</label>
+                <div class="contract-type" id="contract-types">
+                    @foreach (ContractType contractType in Enum.GetValues(typeof(ContractType)))
+                    {
+                        <span class="rounded-box select-btn-cts">@EnumMapperService.GetContractType(contractType)</span>
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column" id="custom-duedate-container">
+                <label>Zieldatum Wählen</label>
+                <div class="row" style="align-items: center;">
+                    <div class="custom-due-date">
+                        
+                        <div>
+                            <input type="number" min="0" id="dueDateNumber" name="DueDateCounter" />
+                        </div>
+                        <div >
+                            <select id="dueDateUnit" name="DueDateTimeUnit">
+                                <option value="days" selected>Tage</option>
+                                <option value="weeks" >Wochen</option>
+                                <option value="months">Monate</option>
+                                <option value="years">Jahre</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select id="dueDateDirection" name="DuedateIsBefore">
+                                <option value="false" selected>Nach</option>
+                                <option value="true">Vor</option>
+                            </select>
+                        </div>
+                        
+                        <div >
+                            <input type="text" disabled value="Zieldatum"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="ProcessId" value="@Model.ProcessId" />
+        @* <button class="save-btn" type="submit">Speichern</button> *@
+
+
+        <div class = "row">
+            <div class = "column">
+                <div class="button-container">
+                    @* <a class="close-button" href="@Url.Action("Index", "Processes")">&times;</a> *@
+                    <a href="@Url.Action("Index", "Processes")" class="back-button">Zurück</a>
+                    <button type="submit" class="save-btn">Speichern</button>
+                </div>
+            </div>
+        </div>
+
+        </form>
+        
+    </div>
+    <script>
+        
+        let btnDepartments = document.getElementsByClassName("select-btn-dpts");
+        let btnCts = document.getElementsByClassName("select-btn-cts");
+        let btnRoles = document.getElementsByClassName("select-btn-roles");
+        let depContainer = document.getElementById("departments");
+        let ctContainer = document.getElementById("contract-types");
+        let rolescontainer = document.getElementById("roles-container");
+        rolescontainer.style.display = "none";
+        let customDueDateContainer = document.getElementById("custom-duedate-container");
+        customDueDateContainer.style.display = "none";
+        let dueDateSelector = document.getElementById("dueDate"); 
+        let taskResponsibleSelect = document.getElementById("responsible");
+        
+
+        let departments = [];
+        let contractTypes = [];
+        let taskResponsibleRole;
+        
+
+
+        
+
+        taskResponsibleSelect.addEventListener("change", (e) => {
+            if (taskResponsibleSelect.value == "role") {
+                rolescontainer.style.display = "flex";
+            } else {
+                rolescontainer.style.display = "none";
+            }
+        });
+        
+
+        dueDateSelector.addEventListener("change", (e) => {
+            if (dueDateSelector.value == "custom") {
+                customDueDateContainer.style.display = "block"
+            } else {
+                customDueDateContainer.style.display = "none"
+            }
+        })
+
+        for (let i = 0; i < btnRoles.length; i++) {
+            btnRoles[i].addEventListener("click", () => {
+                btnRoles[i].classList.toggle("selected");
+                toggleRoles(btnRoles[i]);
+            });
+        }
+        for (let i = 0; i < btnDepartments.length; i++) {
+            btnDepartments[i].addEventListener("click", () => {
+                btnDepartments[i].classList.toggle("selected");
+                toggleDepartments(btnDepartments[i]);
+            });
+        }
+        for (let i = 0; i < btnCts.length; i++) {
+            btnCts[i].addEventListener("click", () => {
+                btnCts[i].classList.toggle("selected");
+                toggleContractTypees(btnCts[i]);
+            });
+        }
+
+        
+
+        
+
+        function validateLists() {
+           
+            //TaskResponsibleRole
+            if (taskResponsibleRole != null) {
+                let newElement = document.createElement("input");
+                newElement.type = "hidden";
+                newElement.name = "TaskResponsibleRole";
+                newElement.value = taskResponsibleRole.innerHTML;
+                rolescontainer.appendChild(newElement);
+            }
+            
+           
+            
+            
+            //Selected departments
+            
+            departments.forEach(e => {
+                let newElement = document.createElement("input");
+                newElement.type = "hidden";
+                newElement.name = "Departments[]";
+                newElement.value = e.innerHTML;
+                depContainer.appendChild(newElement);
+                console.log(newElement);
+            });
+            
+            
+            //Selected Contracttypes
+           
+            contractTypes.forEach(e => {
+                let newElement = document.createElement("input");
+                newElement.type = "hidden";
+                newElement.name = "ContractTypes[]";
+                newElement.value = e.innerHTML;
+                ctContainer.appendChild(newElement);
+            });
+            
+            
+            console.log(departments);
+        }
+
+        function toggleDepartments(selected) {
+            let dupl = -1;
+            for (let i = 0; i < departments.length; i++) {
+                if (departments[i].innerHTML === selected.innerHTML) {
+                    dupl = i;
+                }
+            }
+            if (dupl != -1) {
+                departments.splice(dupl,1);
+            } else {
+                departments.push(selected);
+            }
+            console.log(departments);
+        }
+        function toggleRoles(selected) {
+            
+            for (let i = 0; i < btnRoles.length; i++) {
+                if (btnRoles[i] != selected)
+                    btnRoles[i].classList.remove("selected");
+            }
+            taskResponsibleRole = selected;
+        }
+
+        function toggleContractTypees(selected) {
+            let dupl = -1;
+            for (let i = 0; i < contractTypes.length; i++) {
+                if (contractTypes[i].innerHTML === selected.innerHTML) {
+                    dupl = i;
+                }
+            }
+            if (dupl != -1) {
+                contractTypes.splice(dupl,1);
+            } else {
+                contractTypes.push(selected);
+            }
+        }
+
+        function print(text) {
+            console.log(text);
+        }
+        
+        
+
+        @* function toggleSelection(element, group) {
+            element.classList.toggle('selected');
+            // Hier könnten Sie die Auswahl logisch verarbeiten und die ausgewählten Optionen speichern
+        } *@
+        
+        
+
+        @* function saveTask() {
+            // Daten sammeln
+            const title = document.getElementById('title').value;
+            const responsible = document.getElementById('responsible').value;
+            const description = document.getElementById('description').value;
+            const departments = Array.from(document.querySelectorAll('.departments .rounded-box.selected')).map(box => box.textContent);
+            const contractTypes = Array.from(document.querySelectorAll('.contract-type .rounded-box.selected')).map(box => box.textContent);
+            const dueDateNumber = document.getElementById('dueDateNumber').value;
+            const dueDateUnit = document.getElementById('dueDateUnit').value;
+            const dueDateDirection = document.getElementById('dueDateDirection').value;
+
+            // Hier könnten Sie eine AJAX-Anfrage senden, um die Daten zu speichern
+            // Beispiel für eine AJAX-Anfrage mit fetch API:
+            fetch('/Tasks/CreateTask', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    title: title,
+                    responsible: responsible,
+                    description: description,
+                    departments: departments,
+                    contractTypes: contractTypes,
+                    dueDateNumber: dueDateNumber,
+                    dueDateUnit: dueDateUnit,
+                    dueDateDirection: dueDateDirection
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Aufgabe gespeichert!');
+                // Hier können Sie nach dem Speichern der Aufgabe weitere Aktionen ausführen, z.B. das Dialogfeld schließen oder die Ansicht aktualisieren
+            })
+            .catch(error => {
+                console.error('Fehler beim Speichern der Aufgabe:', error);
+                alert('Fehler beim Speichern der Aufgabe. Bitte versuchen Sie es erneut.');
+            });
+        } *@
+    </script>
+</body>
+</html>

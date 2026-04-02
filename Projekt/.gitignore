@@ -1,0 +1,7 @@
+Replay/bin/
+Replay/obj/
+Replay/app/
+Replay/persistence/
+Replay/Migrations/
+Replay.Tests/obj
+Replay.Tests/bin

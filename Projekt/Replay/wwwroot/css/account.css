@@ -1,0 +1,58 @@
+
+.account-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    user-select: none;
+    color: white;
+}
+
+.account-container {
+    width: 50%;
+    padding: 20px;
+    box-shadow: 0px 0px 10px var(--grey-3);
+    margin-top: 50px;
+    position: relative;
+    user-select: none;
+}
+.container-header {
+    color: var(--amaranth);
+}
+
+
+.account-data-container {
+    padding: 10px;
+}
+.account-data-container p{
+    width: fit-content;
+    background-color: var(--grey-1);
+    font-weight: bold;
+    padding: 6px;
+}
+
+.multiple-account-data-container {
+    display: flex;
+}
+
+.multiple-account-data-container p{
+   margin-right: 5px;
+}
+
+.log-out-btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 10px;
+    width: fit-content;
+    background-color: var(--pink);
+    color: white;
+    font-weight: bold;
+    padding: 6px;
+    border: none;
+    cursor: pointer;
+}
